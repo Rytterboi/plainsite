@@ -176,12 +176,24 @@ Push to GitHub → live in ~60 seconds. Rollback is one click.
 
 ## Roadmap
 
-- [ ] **Twilio contact form** — SMS + email on form submission
-- [ ] **Multi-outlet notifications** — SMS, email, WhatsApp, Slack routing
+- [ ] **plainsite business website** — fork this template, build the plainsite.dk marketing site
+      Decisions needed before building:
+      - Name confirmed? (plainsite or something else)
+      - Danish or English first?
+      - Show pricing publicly or "contact us"?
+      - Name/face behind it or keep anonymous for now?
+      - This is the demo — it sells itself by being the product
+
+- [ ] **Twilio contact form** — highest value next feature
+      Form POST → Flask → Twilio SMS to client's phone within seconds.
+      Config: 4 lines in run.py (TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN, TWILIO_FROM, NOTIFY_PHONE)
+      No third-party form service. No data leaving our infra.
+
+- [ ] **Multi-outlet notifications** — SMS, email, WhatsApp routing per client preference
+
 - [ ] **Image pipeline** — drop in `static/img/`, auto-compress
+
 - [ ] **Analytics** — GA4 or Plausible, one include in `base.html`
-- [ ] **Theme variables doc** — document the 5-6 CSS vars so new client theming is 10 min
-- [ ] **deploy.sh** — one command redeploy for clients on VPS
 
 ## Content style (Danish sites)
 
