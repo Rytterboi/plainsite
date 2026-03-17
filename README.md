@@ -137,6 +137,17 @@ Google Analytics or self-hosted Plausible — one include in `base.html`. Client
 **Theme variables**
 Document the 5–6 CSS variables that control brand colours and fonts. New client theming becomes a 10-minute job.
 
+**CSS framework** *(evaluate before next client)*
+Replace hand-rolled CSS with a zero-build-step framework for faster, more consistent results across client sites. Candidates:
+- **DaisyUI** (CDN) — beautiful components, Tailwind-based, works via CDN with no build step
+- **Pico CSS** — classless, minimal, looks professional with almost zero effort, great for simple sites
+- **Bulma** — pure CSS, no JS, solid component library, easy to theme
+
+Decision criteria: no build step (just a `<link>` in `base.html`), easy per-client theming, no JS bloat. Whichever wins, the hand-rolled CSS in `style.css` is a clean baseline to compare against.
+
+**plainsite business website**
+The plainsite marketing site itself — same stack, same fork, eats its own cooking. Needed before serious client outreach. This is the demo that sells everything else.
+
 ---
 
 ## Running locally
