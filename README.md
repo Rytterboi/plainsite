@@ -107,30 +107,17 @@ pip install -r requirements.txt
 python3 run.py
 ```
 
-## Production deploy
+## Deploy (Railway)
 
-```bash
-pip install gunicorn
-gunicorn -w 2 -b 127.0.0.1:8000 run:app
-```
+No VPS, no Nginx, no certbot, no SSH.
 
-```nginx
-server {
-    server_name example.dk www.example.dk;
+1. Push repo to GitHub
+2. New project on [railway.app](https://railway.app) → "Deploy from GitHub repo"
+3. Add custom domain in Railway dashboard → client points their DNS there
+4. SSL is automatic
 
-    location /static/ {
-        alias /path/to/site/static/;
-        expires 7d;
-    }
-    location / {
-        proxy_pass http://127.0.0.1:8000;
-        proxy_set_header Host $host;
-        proxy_set_header X-Real-IP $remote_addr;
-    }
-}
-```
-
-`certbot --nginx -d example.dk -d www.example.dk`
+Push to GitHub → live in ~60 seconds. $5/month hobby plan runs many sites.
+`Procfile` and `runtime.txt` are already in the repo.
 
 ---
 

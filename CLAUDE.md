@@ -78,33 +78,20 @@ NOTIFY_EMAIL       = "..."      # optional fallback
 The form POST handler will call Twilio's REST API (no extra library needed, just `urllib`
 or `requests`) and optionally send an email via SMTP.
 
-## Deployment (production)
+## Deployment (Railway)
 
-```bash
-pip install gunicorn
-gunicorn -w 2 -b 127.0.0.1:8000 run:app
-```
+Railway is the deploy target. No VPS, no Nginx, no certbot, no SSH.
 
-Nginx config:
-```nginx
-server {
-    listen 80;
-    server_name aktivpsykologerne.dk www.aktivpsykologerne.dk;
+1. Push repo to GitHub
+2. New project on railway.app → "Deploy from GitHub repo"
+3. Railway auto-detects Python, runs `gunicorn run:app` via `Procfile`
+4. Add custom domain in Railway dashboard → client points DNS there
+5. SSL is automatic
 
-    location /static/ {
-        alias /path/to/aktivpsykologerne/static/;
-        expires 7d;
-    }
+Each client site is a separate Railway service. $5/month hobby plan covers many sites.
+Push to GitHub → live in ~60 seconds. Rollback is one click in the dashboard.
 
-    location / {
-        proxy_pass http://127.0.0.1:8000;
-        proxy_set_header Host $host;
-        proxy_set_header X-Real-IP $remote_addr;
-    }
-}
-```
-
-Then: `certbot --nginx -d aktivpsykologerne.dk -d www.aktivpsykologerne.dk`
+Requires `Procfile` and `runtime.txt` in repo root (both present).
 
 ## Content style
 
