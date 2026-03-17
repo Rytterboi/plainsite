@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  {% set page_title = self.title() ~ ' – Psykolog Astrid S. Bjørnekær, Aarhus' %}
+  {% set page_desc = self.meta_desc() %}
+  {% set canonical = 'https://www.aktivpsykologerne.dk' ~ request.path %}
+
+  <title>{% block title %}Aktivpsykologerne{% endblock %} – Psykolog Astrid S. Bjørnekær, Aarhus</title>
+  <meta name="description" content="{% block meta_desc %}Autoriseret psykolog Astrid Skovgaard Bjørnekær tilbyder psykologhjælp til børn, unge, voksne, familier og par i Aarhus.{% endblock %}">
+
+  {# Google Search Console – fill in GOOGLE_VERIFICATION_CODE in run.py #}
+  {% if config.get('GOOGLE_VERIFICATION_CODE') %}
+  <meta name="google-site-verification" content="{{ config['GOOGLE_VERIFICATION_CODE'] }}">
+  {% endif %}
+
+  {# Canonical #}
+  <link rel="canonical" href="{{ canonical }}">
+
+  {# Open Graph #}
+  <meta property="og:type"        content="website">
+  <meta property="og:locale"      content="da_DK">
+  <meta property="og:site_name"   content="Aktivpsykologerne">
+  <meta property="og:url"         content="{{ canonical }}">
+  <meta property="og:title"       content="{{ page_title }}">
+  <meta property="og:description" content="{{ page_desc }}">
+
+  {# JSON-LD structured data #}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://www.aktivpsykologerne.dk/#website",
+        "url": "https://www.aktivpsykologerne.dk/",
+        "name": "Aktivpsykologerne",
+        "description": "Psykolog Astrid S. Bjørnekær – Aarhus",
+        "inLanguage": "da-DK"
+      },
+      {
+        "@type": ["Person", "MedicalBusiness"],
+        "@id": "https://www.aktivpsykologerne.dk/#psykolog",
+        "name": "Astrid Skovgaard Bjørnekær",
+        "jobTitle": "Autoriseret psykolog, cand. psyk.",
+        "url": "https://www.aktivpsykologerne.dk/",
+        "telephone": "+4540452626",
+        "email": "kontakt@aktivpsykologerne.dk",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Aldersrovej 38",
+          "postalCode": "8200",
+          "addressLocality": "Aarhus N",
+          "addressCountry": "DK"
+        },
+        "medicalSpecialty": "Psychiatry",
+        "hasCredential": [
+          "Autoriseret psykolog",
+          "Specialistgodkendelse i klinisk børne- og ungdomspsykologi",
+          "EMDR-certificeret specialist"
+        ],
+        "memberOf": {
+          "@type": "Organization",
+          "name": "Dansk Psykologforening"
+        },
+        "sameAs": []
+      },
+      {
+        "@type": "WebPage",
+        "@id": "{{ canonical }}#webpage",
+        "url": "{{ canonical }}",
+        "name": "{{ page_title }}",
+        "description": "{{ page_desc }}",
+        "isPartOf": { "@id": "https://www.aktivpsykologerne.dk/#website" },
+        "about":     { "@id": "https://www.aktivpsykologerne.dk/#psykolog" },
+        "inLanguage": "da-DK"
+      }
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="/" class="logo">
+        <span class="logo-name">Aktivpsykologerne</span>
+        <span class="logo-sub">v/ cand. psyk. Astrid S. Bjørnekær</span>
+      </a>
+      <nav class="main-nav">
+        <input type="checkbox" id="nav-toggle" class="nav-toggle">
+        <label for="nav-toggle" class="nav-burger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </label>
+        <ul class="nav-list">
+          <li><a href="/" {% if request.path == '/' %}class="active"{% endif %}>Hjem</a></li>
+          <li><a href="/profil/" {% if request.path == '/profil/' %}class="active"{% endif %}>Profil</a></li>
+          <li><a href="/ydelser/" {% if request.path == '/ydelser/' %}class="active"{% endif %}>Ydelser</a></li>
+          <li><a href="/terapiformer/" {% if request.path == '/terapiformer/' %}class="active"{% endif %}>Terapiformer</a></li>
+          <li class="has-dropdown">
+            <a href="/praktisk-info/" {% if '/praktisk' in request.path or '/pris' in request.path or '/afbud' in request.path %}class="active"{% endif %}>Praktisk info</a>
+            <ul class="dropdown">
+              <li><a href="/pris-og-betaling/">Pris og betaling</a></li>
+              <li><a href="/afbud/">Afbud</a></li>
+            </ul>
+          </li>
+          <li><a href="/blog/" {% if '/blog' in request.path %}class="active"{% endif %}>Blog</a></li>
+          <li><a href="/kontakt/" {% if request.path == '/kontakt/' %}class="active"{% endif %}>Kontakt</a></li>
+          <li><a href="/book-en-tid/" class="btn-book">Book en tid</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-col">
+        <strong>Aktivpsykologerne</strong>
+        <p>v/ cand. psyk. Astrid Skovgaard Bjørnekær<br>Autoriseret psykolog</p>
+      </div>
+      <div class="footer-col">
+        <strong>Kontakt</strong>
+        <p>
+          <a href="tel:+4540452626">+45 40 45 26 26</a><br>
+          <a href="mailto:kontakt@aktivpsykologerne.dk">kontakt@aktivpsykologerne.dk</a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <strong>Adresse</strong>
+        <p>Aldersrovej 38<br>8200 Aarhus N</p>
+      </div>
+      <div class="footer-col">
+        <strong>Links</strong>
+        <ul>
+          <li><a href="/vilkaar-og-betingelser/">Vilkår og betingelser</a></li>
+          <li><a href="/bliv-en-aktivpsykolog/">Bliv en aktivpsykolog</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; {{ 2025 }} Aktivpsykologerne – Astrid Skovgaard Bjørnekær</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

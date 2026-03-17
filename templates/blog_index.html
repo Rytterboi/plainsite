@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}Blog{% endblock %}
+{% block meta_desc %}Artikler om psykologi, trivsel og mental sundhed fra psykolog Astrid S. Bjørnekær i Aarhus.{% endblock %}
+
+{% block content %}
+
+<section class="page-header">
+  <div class="container">
+    <h1>Blog</h1>
+    <p class="lead">Artikler om psykologi, trivsel og hverdagsliv.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    {% if posts %}
+    <div class="post-list">
+      {% for post in posts %}
+      <article class="post-card">
+        <div class="post-meta">
+          <time datetime="{{ post.date }}">{{ post.date.strftime('%d. %B %Y') }}</time>
+        </div>
+        <h2 class="post-title"><a href="/blog/{{ post.slug }}/">{{ post.title }}</a></h2>
+        {% if post.description %}
+        <p class="post-excerpt">{{ post.description }}</p>
+        {% endif %}
+        <a href="/blog/{{ post.slug }}/" class="post-readmore">Læs artikel &rarr;</a>
+      </article>
+      {% endfor %}
+    </div>
+    {% else %}
+    <p>Ingen artikler endnu – kig tilbage snart.</p>
+    {% endif %}
+  </div>
+</section>
+
+{% endblock %}

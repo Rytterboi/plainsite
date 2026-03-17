@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}{{ post.title }}{% endblock %}
+{% block meta_desc %}{{ post.description }}{% endblock %}
+
+{% block content %}
+
+<section class="page-header">
+  <div class="container">
+    <p class="post-breadcrumb"><a href="/blog/">Blog</a> &rsaquo; {{ post.title }}</p>
+    <h1>{{ post.title }}</h1>
+    <p class="lead">
+      <time datetime="{{ post.date }}">{{ post.date.strftime('%d. %B %Y') }}</time>
+      &nbsp;&middot;&nbsp; Astrid S. Bjørnekær
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="post-body">
+      {{ post.html | safe }}
+    </div>
+
+    <div class="post-footer">
+      <p><strong>Astrid Skovgaard Bjørnekær</strong> er autoriseret psykolog og specialist i
+      klinisk børne- og ungdomspsykologi. Hun driver privatpraksis på Aldersrovej 38, 8200 Aarhus N.</p>
+      <a href="/blog/" class="btn-primary" style="margin-top:1rem; display:inline-block;">&larr; Alle artikler</a>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
