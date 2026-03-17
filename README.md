@@ -74,6 +74,22 @@ gh repo create clientname --template Rytterboi/plainsite
 
 ---
 
+## No lock-in. Ever.
+
+Most agencies and platforms have lock-in baked into the business model — proprietary CMS, database exports in weird formats, hosting tied to the platform, themes you can't take anywhere. They're betting on switching costs to retain you. It's a slightly adversarial relationship from day one.
+
+We do the opposite.
+
+There is no database. No proprietary format. No hidden content. Everything on your site is just HTML served publicly on the internet. If you ever want to leave — no hard feelings, no export fees, no data held hostage. A new developer can scrape the live site and have you up and running somewhere else within days.
+
+We want clients to stay because the service is excellent. Not because they're stuck.
+
+That honesty changes the dynamic completely. It signals confidence in the product. It signals respect for the client's business. And ironically it probably reduces churn — people stay with vendors they trust. The ones who trap you are the ones clients are desperately looking for an exit from.
+
+> *"Want to move on someday? No problem. It's your content, it's on your website, anyone can pick it up. We'd rather earn your business every month than hold you hostage."*
+
+---
+
 ## Honest assessment of limitations
 
 **UI/design:** Claude generates clean, professional HTML/CSS but it's not a bespoke designer. For most small local businesses this is more than sufficient — they're coming from a broken WordPress site that hasn't been updated since 2017. If a client needs something more polished, a one-time CSS pass from a freelance designer (3–5 hours) levels it up significantly, and you charge accordingly.
