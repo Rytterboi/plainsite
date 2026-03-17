@@ -1,32 +1,84 @@
-/*
- * Minimal overrides on top of DaisyUI.
- * Per-client theming: change --color-primary (and optionally --color-secondary)
- * Everything else is DaisyUI + Tailwind utility classes.
- */
+/* ═══════════════════════════════════════════════════════════════
+   CLIENT CONFIG
+   This block is the only thing you need to change per client.
+   Everything else in this file (and the whole site) auto-adapts.
+   ═══════════════════════════════════════════════════════════════
 
-/* ── Custom primary colour (sage green) ─────────────────────── */
-[data-theme="light"],
+   FONTS: also update the Google Fonts URL in templates/base.html
+          (one line, clearly marked) to match --font-heading/body.
+          Use fonts.google.com to browse options.
+
+   COLOURS: use oklch.com to pick — format is "L% C H"
+            L = lightness (0-100%), C = chroma, H = hue angle
+   ═══════════════════════════════════════════════════════════════ */
+
 :root {
-  --color-primary: oklch(54% 0.08 155);
-  --color-primary-content: oklch(98% 0.002 155);
-  /* DaisyUI v4 also reads the short names */
-  --p: 54% 0.08 155;
-  --pc: 98% 0.002 155;
+  /* ── Brand colours ──────────────────────────────────────────── */
+  --brand-primary:         oklch(54% 0.08 155);    /* sage green   */
+  --brand-primary-content: oklch(98% 0.002 155);   /* text on primary bg */
+
+  /* ── Fonts ──────────────────────────────────────────────────── */
+  --font-heading: 'Lora', serif;                   /* h1–h4, logo  */
+  --font-body:    'Source Sans 3', sans-serif;      /* all body text */
+
+  /* ── Shapes ─────────────────────────────────────────────────── */
+  --radius-btn:  9999px;   /* pill=9999px  rounded=0.5rem  square=0 */
+  --radius-card: 0.75rem;
+
+  /* ── Spacing ─────────────────────────────────────────────────── */
+  --section-gap: 5rem;     /* vertical padding between sections     */
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   END CONFIG — do not edit below this line for per-client work
+   ═══════════════════════════════════════════════════════════════ */
+
+
+/* ── Wire config into DaisyUI ──────────────────────────────────
+   DaisyUI v4 reads --p / --pc for the primary colour.           */
+[data-theme="light"],
+[data-theme="dark"],
+:root {
+  --p:  54% 0.08 155;     /* sync with --brand-primary lightness/chroma/hue */
+  --pc: 98% 0.002 155;    /* sync with --brand-primary-content              */
 }
 
 /* ── Typography ─────────────────────────────────────────────── */
 h1, h2, h3, h4 {
-  font-family: 'Lora', serif;
+  font-family: var(--font-heading);
 }
 
-/* ── Navbar active state ─────────────────────────────────────── */
+body {
+  font-family: var(--font-body);
+}
+
+/* ── Buttons — honour --radius-btn ──────────────────────────── */
+.btn {
+  border-radius: var(--radius-btn);
+}
+.btn.rounded-full {
+  border-radius: 9999px;   /* explicit overrides still work */
+}
+
+/* ── Cards — honour --radius-card ───────────────────────────── */
+.card {
+  border-radius: var(--radius-card);
+}
+
+/* ── Sections ────────────────────────────────────────────────── */
+.section-gap {
+  padding-top: var(--section-gap);
+  padding-bottom: var(--section-gap);
+}
+
+/* ── Navbar active link ──────────────────────────────────────── */
 .menu a.active {
-  background-color: oklch(var(--p) / 0.1);
+  background-color: oklch(var(--p) / 0.12);
   color: oklch(var(--p));
   font-weight: 600;
 }
 
-/* ── Prose (blog posts) ──────────────────────────────────────── */
-.prose h2, .prose h3, .prose h4 {
-  font-family: 'Lora', serif;
+/* ── Prose (blog posts) — use heading font ───────────────────── */
+.prose h1, .prose h2, .prose h3, .prose h4 {
+  font-family: var(--font-heading);
 }

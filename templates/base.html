@@ -73,13 +73,31 @@
     if (t) document.documentElement.setAttribute('data-theme', t);
   </script>
 
+  {# ═══ FONT CONFIG ════════════════════════════════════════════
+       Change the URL below to swap fonts (fonts.google.com).
+       Then update --font-heading / --font-body in static/style.css
+       to match. That's the only two-file change in the whole setup.
+       Current: Lora (headings) + Source Sans 3 (body)
+  ════════════════════════════════════════════════════════════ #}
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
 
   {# DaisyUI — load before Tailwind CDN #}
   <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css">
-  {# Tailwind CDN with typography plugin for blog prose #}
+  {# Tailwind CDN with typography plugin — font names must match style.css #}
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            heading: ['Lora', 'serif'],
+            sans:    ['Source Sans 3', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
   <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
 
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
