@@ -1,25 +1,22 @@
 <!DOCTYPE html>
-<html lang="da">
+<html lang="da" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  {% set page_title = self.title() ~ ' – Psykolog Astrid S. Bjørnekær, Aarhus' %}
-  {% set page_desc = self.meta_desc() %}
-  {% set canonical = 'https://www.aktivpsykologerne.dk' ~ request.path %}
+  {% set page_title    = self.title() ~ ' – Psykolog Astrid S. Bjørnekær, Aarhus' %}
+  {% set page_desc     = self.meta_desc() %}
+  {% set canonical     = 'https://www.aktivpsykologerne.dk' ~ request.path %}
 
   <title>{% block title %}Aktivpsykologerne{% endblock %} – Psykolog Astrid S. Bjørnekær, Aarhus</title>
   <meta name="description" content="{% block meta_desc %}Autoriseret psykolog Astrid Skovgaard Bjørnekær tilbyder psykologhjælp til børn, unge, voksne, familier og par i Aarhus.{% endblock %}">
 
-  {# Google Search Console – fill in GOOGLE_VERIFICATION_CODE in run.py #}
   {% if config.get('GOOGLE_VERIFICATION_CODE') %}
   <meta name="google-site-verification" content="{{ config['GOOGLE_VERIFICATION_CODE'] }}">
   {% endif %}
 
-  {# Canonical #}
   <link rel="canonical" href="{{ canonical }}">
 
-  {# Open Graph #}
   <meta property="og:type"        content="website">
   <meta property="og:locale"      content="da_DK">
   <meta property="og:site_name"   content="Aktivpsykologerne">
@@ -27,7 +24,6 @@
   <meta property="og:title"       content="{{ page_title }}">
   <meta property="og:description" content="{{ page_desc }}">
 
-  {# JSON-LD structured data #}
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -37,7 +33,6 @@
         "@id": "https://www.aktivpsykologerne.dk/#website",
         "url": "https://www.aktivpsykologerne.dk/",
         "name": "Aktivpsykologerne",
-        "description": "Psykolog Astrid S. Bjørnekær – Aarhus",
         "inLanguage": "da-DK"
       },
       {
@@ -55,17 +50,8 @@
           "addressLocality": "Aarhus N",
           "addressCountry": "DK"
         },
-        "medicalSpecialty": "Psychiatry",
-        "hasCredential": [
-          "Autoriseret psykolog",
-          "Specialistgodkendelse i klinisk børne- og ungdomspsykologi",
-          "EMDR-certificeret specialist"
-        ],
-        "memberOf": {
-          "@type": "Organization",
-          "name": "Dansk Psykologforening"
-        },
-        "sameAs": []
+        "hasCredential": ["Autoriseret psykolog", "Specialistgodkendelse i klinisk børne- og ungdomspsykologi", "EMDR-certificeret specialist"],
+        "memberOf": { "@type": "Organization", "name": "Dansk Psykologforening" }
       },
       {
         "@type": "WebPage",
@@ -81,79 +67,152 @@
   }
   </script>
 
+  {# Restore saved theme before paint to avoid flash #}
+  <script>
+    const t = localStorage.getItem('theme');
+    if (t) document.documentElement.setAttribute('data-theme', t);
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-</head>
-<body>
 
-  <header class="site-header">
-    <div class="container header-inner">
-      <a href="/" class="logo">
-        <span class="logo-name">Aktivpsykologerne</span>
-        <span class="logo-sub">v/ cand. psyk. Astrid S. Bjørnekær</span>
-      </a>
-      <nav class="main-nav">
-        <input type="checkbox" id="nav-toggle" class="nav-toggle">
-        <label for="nav-toggle" class="nav-burger" aria-label="Menu">
-          <span></span><span></span><span></span>
-        </label>
-        <ul class="nav-list">
+  {# DaisyUI — load before Tailwind CDN #}
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css">
+  {# Tailwind CDN with typography plugin for blog prose #}
+  <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+  {# instant.page — prefetch on hover for near-instant navigation #}
+  <script src="//instant.page/5.2.0" type="module" integrity="sha384-jnZyxPjiipYXnSU0ygqeac2q7CVYMbh84q0uHVRRxEtvFPiQYbXWUorga2aCdCV" crossorigin="anonymous"></script>
+</head>
+
+<body class="min-h-screen flex flex-col">
+
+  {# ── Navbar ───────────────────────────────────────────────── #}
+  <div class="navbar bg-base-100/95 backdrop-blur-sm shadow-sm sticky top-0 z-50">
+    <div class="navbar-start">
+      {# Mobile hamburger #}
+      <div class="dropdown lg:hidden">
+        <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </div>
+        <ul tabindex="0" class="dropdown-content menu p-2 shadow-lg bg-base-100 rounded-box w-56 mt-3 z-50">
           <li><a href="/" {% if request.path == '/' %}class="active"{% endif %}>Hjem</a></li>
           <li><a href="/profil/" {% if request.path == '/profil/' %}class="active"{% endif %}>Profil</a></li>
           <li><a href="/ydelser/" {% if request.path == '/ydelser/' %}class="active"{% endif %}>Ydelser</a></li>
           <li><a href="/terapiformer/" {% if request.path == '/terapiformer/' %}class="active"{% endif %}>Terapiformer</a></li>
-          <li class="has-dropdown">
-            <a href="/praktisk-info/" {% if '/praktisk' in request.path or '/pris' in request.path or '/afbud' in request.path %}class="active"{% endif %}>Praktisk info</a>
-            <ul class="dropdown">
-              <li><a href="/pris-og-betaling/">Pris og betaling</a></li>
-              <li><a href="/afbud/">Afbud</a></li>
-            </ul>
+          <li>
+            <details>
+              <summary>Praktisk info</summary>
+              <ul>
+                <li><a href="/praktisk-info/">Oversigt</a></li>
+                <li><a href="/pris-og-betaling/">Pris og betaling</a></li>
+                <li><a href="/afbud/">Afbud</a></li>
+              </ul>
+            </details>
           </li>
           <li><a href="/blog/" {% if '/blog' in request.path %}class="active"{% endif %}>Blog</a></li>
           <li><a href="/kontakt/" {% if request.path == '/kontakt/' %}class="active"{% endif %}>Kontakt</a></li>
-          <li><a href="/book-en-tid/" class="btn-book">Book en tid</a></li>
+          <li class="mt-1"><a href="/book-en-tid/" class="btn btn-primary btn-sm">Book en tid</a></li>
         </ul>
-      </nav>
-    </div>
-  </header>
+      </div>
 
-  <main>
+      {# Logo #}
+      <a href="/" class="btn btn-ghost h-auto py-2 flex-col items-start gap-0 normal-case">
+        <span class="text-lg font-bold leading-tight" style="font-family: 'Lora', serif;">Aktivpsykologerne</span>
+        <span class="text-xs opacity-50 font-normal leading-tight hidden sm:block">v/ cand. psyk. Astrid S. Bjørnekær</span>
+      </a>
+    </div>
+
+    {# Desktop nav #}
+    <div class="navbar-center hidden lg:flex">
+      <ul class="menu menu-horizontal gap-0.5 text-sm">
+        <li><a href="/" {% if request.path == '/' %}class="active"{% endif %}>Hjem</a></li>
+        <li><a href="/profil/" {% if request.path == '/profil/' %}class="active"{% endif %}>Profil</a></li>
+        <li><a href="/ydelser/" {% if request.path == '/ydelser/' %}class="active"{% endif %}>Ydelser</a></li>
+        <li><a href="/terapiformer/" {% if request.path == '/terapiformer/' %}class="active"{% endif %}>Terapiformer</a></li>
+        <li>
+          <details>
+            <summary {% if '/praktisk' in request.path or '/pris' in request.path or '/afbud' in request.path %}class="active"{% endif %}>Praktisk info</summary>
+            <ul class="p-2 bg-base-100 shadow-lg rounded-box z-50 w-48">
+              <li><a href="/praktisk-info/">Oversigt</a></li>
+              <li><a href="/pris-og-betaling/">Pris og betaling</a></li>
+              <li><a href="/afbud/">Afbud</a></li>
+            </ul>
+          </details>
+        </li>
+        <li><a href="/blog/" {% if '/blog' in request.path %}class="active"{% endif %}>Blog</a></li>
+        <li><a href="/kontakt/" {% if request.path == '/kontakt/' %}class="active"{% endif %}>Kontakt</a></li>
+      </ul>
+    </div>
+
+    <div class="navbar-end gap-2">
+      {# Dark mode toggle #}
+      <label class="swap swap-rotate btn btn-ghost btn-circle btn-sm" title="Skift tema">
+        <input type="checkbox" class="theme-controller" value="dark"
+               {% if request.cookies.get('theme') == 'dark' %}checked{% endif %}>
+        {# Sun icon (shown in dark mode) #}
+        <svg class="swap-on h-5 w-5 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M5.64,17l-.71.71a1,1,0,0,0,0,1.41,1,1,0,0,0,1.41,0l.71-.71A1,1,0,0,0,5.64,17ZM5,12a1,1,0,0,0-1-1H3a1,1,0,0,0,0,2H4A1,1,0,0,0,5,12Zm7-7a1,1,0,0,0,1-1V3a1,1,0,0,0-2,0V4A1,1,0,0,0,12,5ZM5.64,7.05a1,1,0,0,0,.7.29,1,1,0,0,0,.71-.29,1,1,0,0,0,0-1.41l-.71-.71A1,1,0,0,0,4.93,6.34Zm12,.29a1,1,0,0,0,.7-.29l.71-.71a1,1,0,1,0-1.41-1.41L17,5.64a1,1,0,0,0,0,1.41A1,1,0,0,0,17.66,7.34ZM21,11H20a1,1,0,0,0,0,2h1a1,1,0,0,0,0-2Zm-9,8a1,1,0,0,0-1,1v1a1,1,0,0,0,2,0V20A1,1,0,0,0,12,19ZM18.36,17A1,1,0,0,0,17,18.36l.71.71a1,1,0,0,0,1.41,0,1,1,0,0,0,0-1.41ZM12,6.5A5.5,5.5,0,1,0,17.5,12,5.51,5.51,0,0,0,12,6.5Zm0,9A3.5,3.5,0,1,1,15.5,12,3.5,3.5,0,0,1,12,15.5Z"/>
+        </svg>
+        {# Moon icon (shown in light mode) #}
+        <svg class="swap-off h-5 w-5 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M21.64,13a1,1,0,0,0-1.05-.14,8.05,8.05,0,0,1-3.37.73A8.15,8.15,0,0,1,9.08,5.49a8.59,8.59,0,0,1,.25-2A1,1,0,0,0,8,2.36,10.14,10.14,0,1,0,22,14.05,1,1,0,0,0,21.64,13Zm-9.5,6.69A8.14,8.14,0,0,1,7.08,5.22v.27A10.15,10.15,0,0,0,17.22,15.63a9.79,9.79,0,0,0,2.1-.22A8.11,8.11,0,0,1,12.14,19.73Z"/>
+        </svg>
+      </label>
+
+      <a href="/book-en-tid/" class="btn btn-primary btn-sm rounded-full hidden sm:flex">Book en tid</a>
+    </div>
+  </div>
+
+  {# ── Main content ─────────────────────────────────────────── #}
+  <main class="flex-1">
     {% block content %}{% endblock %}
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <div class="footer-col">
-        <strong>Aktivpsykologerne</strong>
-        <p>v/ cand. psyk. Astrid Skovgaard Bjørnekær<br>Autoriseret psykolog</p>
+  {# ── Footer ───────────────────────────────────────────────── #}
+  <footer class="footer footer-center p-0 mt-16">
+    <div class="w-full bg-base-300 text-base-content">
+      <div class="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 px-6 py-12">
+        <div>
+          <span class="footer-title" style="font-family:'Lora',serif;">Aktivpsykologerne</span>
+          <p class="text-sm opacity-70">v/ cand. psyk.<br>Astrid Skovgaard Bjørnekær<br>Autoriseret psykolog</p>
+        </div>
+        <div>
+          <span class="footer-title">Kontakt</span>
+          <a href="tel:+4540452626" class="link link-hover text-sm">+45 40 45 26 26</a>
+          <a href="mailto:kontakt@aktivpsykologerne.dk" class="link link-hover text-sm">kontakt@aktivpsykologerne.dk</a>
+        </div>
+        <div>
+          <span class="footer-title">Adresse</span>
+          <p class="text-sm opacity-70">Aldersrovej 38<br>8200 Aarhus N</p>
+        </div>
+        <div>
+          <span class="footer-title">Links</span>
+          <a href="/blog/" class="link link-hover text-sm">Blog</a>
+          <a href="/vilkaar-og-betingelser/" class="link link-hover text-sm">Vilkår og betingelser</a>
+          <a href="/bliv-en-aktivpsykolog/" class="link link-hover text-sm">Bliv en aktivpsykolog</a>
+        </div>
       </div>
-      <div class="footer-col">
-        <strong>Kontakt</strong>
-        <p>
-          <a href="tel:+4540452626">+45 40 45 26 26</a><br>
-          <a href="mailto:kontakt@aktivpsykologerne.dk">kontakt@aktivpsykologerne.dk</a>
-        </p>
-      </div>
-      <div class="footer-col">
-        <strong>Adresse</strong>
-        <p>Aldersrovej 38<br>8200 Aarhus N</p>
-      </div>
-      <div class="footer-col">
-        <strong>Links</strong>
-        <ul>
-          <li><a href="/vilkaar-og-betingelser/">Vilkår og betingelser</a></li>
-          <li><a href="/bliv-en-aktivpsykolog/">Bliv en aktivpsykolog</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <div class="container">
-        <p>&copy; {{ 2025 }} Aktivpsykologerne – Astrid Skovgaard Bjørnekær</p>
+      <div class="border-t border-base-content/10 w-full py-4 px-6 text-center">
+        <p class="text-xs opacity-40">&copy; {{ 2025 }} Aktivpsykologerne – Astrid Skovgaard Bjørnekær</p>
       </div>
     </div>
   </footer>
+
+  {# Persist theme choice to localStorage on toggle #}
+  <script>
+    document.querySelectorAll('.theme-controller').forEach(el => {
+      el.addEventListener('change', () => {
+        const theme = el.checked ? el.value : 'light';
+        localStorage.setItem('theme', theme);
+      });
+    });
+  </script>
 
 </body>
 </html>

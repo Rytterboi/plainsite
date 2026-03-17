@@ -3,124 +3,134 @@
 
 {% block content %}
 
-<section class="hero">
-  <div class="container">
-    <h1>Psykologhjælp i Aarhus</h1>
-    <p class="hero-sub">
-      Autoriseret psykolog Astrid Skovgaard Bjørnekær tilbyder samtaler og terapi
-      til børn, unge, voksne, familier og par.
-    </p>
-    <a href="/book-en-tid/" class="hero-cta">Book en tid</a>
+{# ── Hero ── #}
+<section class="hero min-h-[60vh] bg-base-200">
+  <div class="hero-content text-center py-20">
+    <div class="max-w-2xl">
+      <h1 class="text-5xl font-bold mb-6">Psykologhjælp i Aarhus</h1>
+      <p class="text-xl opacity-70 mb-8">
+        Autoriseret psykolog Astrid Skovgaard Bjørnekær tilbyder samtaler og terapi
+        til børn, unge, voksne, familier og par.
+      </p>
+      <div class="flex gap-3 justify-center flex-wrap">
+        <a href="/book-en-tid/" class="btn btn-primary btn-lg rounded-full">Book en tid</a>
+        <a href="/ydelser/" class="btn btn-outline btn-lg rounded-full">Se ydelser</a>
+      </div>
+    </div>
   </div>
 </section>
 
-<section class="section">
-  <div class="container">
-    <div class="two-col">
+{# ── Intro ── #}
+<section class="py-20">
+  <div class="max-w-5xl mx-auto px-6">
+    <div class="grid md:grid-cols-2 gap-12 items-start">
       <div>
-        <h2>Velkommen til Aktivpsykologerne</h2>
-        <p>
-          Mange mennesker oplever perioder i livet, hvor det er svært at komme videre på egen hånd.
-          Det kan handle om stress, angst, sorg, kriser, relationsproblemer eller andre udfordringer,
-          der påvirker hverdagen.
+        <h2 class="text-3xl font-bold mb-4">Velkommen til Aktivpsykologerne</h2>
+        <p class="opacity-80 mb-4">
+          Mange mennesker oplever perioder i livet, hvor det er svært at komme videre på
+          egen hånd. Det kan handle om stress, angst, sorg, kriser, relationsproblemer
+          eller andre udfordringer, der påvirker hverdagen.
         </p>
-        <p>
-          Som autoriseret psykolog tilbyder jeg et fortroligt rum, hvor vi sammen kan arbejde med
-          det, der er svært. Jeg møder dig, der hvor du er, og vi finder den tilgang, der passer
-          bedst til dig og din situation.
+        <p class="opacity-80 mb-4">
+          Som autoriseret psykolog tilbyder jeg et fortroligt rum, hvor vi sammen kan
+          arbejde med det, der er svært. Jeg møder dig, der hvor du er, og vi finder
+          den tilgang, der passer bedst til dig og din situation.
         </p>
-        <p>
-          Jeg arbejder med <strong>børn, unge, voksne, familier og par</strong> og har over
-          27 års erfaring inden for klinisk psykologi.
+        <p class="opacity-80 mb-6">
+          Jeg arbejder med <strong>børn, unge, voksne, familier og par</strong> og har
+          over 27 års erfaring inden for klinisk psykologi.
         </p>
-        <a href="/profil/" class="btn-primary mt-2" style="display:inline-block; margin-top:1rem;">Læs mere om mig</a>
+        <a href="/profil/" class="btn btn-primary rounded-full">Læs mere om mig</a>
       </div>
-      <div>
-        <div class="info-box">
-          <strong>Kontakt</strong>
-          <p>
-            Tlf.: <a href="tel:+4540452626">+45 40 45 26 26</a><br>
-            Mail: <a href="mailto:kontakt@aktivpsykologerne.dk">kontakt@aktivpsykologerne.dk</a><br>
-            Adresse: Aldersrovej 38, 8200 Aarhus N
-          </p>
+      <div class="flex flex-col gap-4">
+        <div class="alert bg-primary/10 border-primary/20">
+          <div>
+            <h3 class="font-semibold mb-1">Kontakt</h3>
+            <p class="text-sm">
+              Tlf.: <a href="tel:+4540452626" class="link">+45 40 45 26 26</a><br>
+              Mail: <a href="mailto:kontakt@aktivpsykologerne.dk" class="link">kontakt@aktivpsykologerne.dk</a><br>
+              Aldersrovej 38, 8200 Aarhus N
+            </p>
+          </div>
         </div>
-        <div class="info-box" style="margin-top:1rem;">
-          <strong>Akut tid</strong>
-          <p>Jeg tilstræber at kunne tilbyde tid inden for 24 timer ved akut behov. Ring eller skriv.</p>
+        <div class="alert bg-primary/10 border-primary/20">
+          <div>
+            <h3 class="font-semibold mb-1">Akut tid</h3>
+            <p class="text-sm">Jeg tilstræber at tilbyde tid inden for 24 timer ved akut behov. Ring eller skriv.</p>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section section-alt">
-  <div class="container">
-    <h2 class="text-center">Hvad kan jeg hjælpe med?</h2>
-    <div class="card-grid">
-      <div class="card">
-        <div class="card-icon">🧠</div>
-        <h3>Angst og stress</h3>
-        <p>Hjælp til at håndtere og reducere angst, bekymringer og stressrelaterede symptomer i hverdagen.</p>
-      </div>
-      <div class="card">
-        <div class="card-icon">💔</div>
-        <h3>Krise og sorg</h3>
-        <p>Støtte ved personlige kriser, tab og sorg – at finde vej videre når livet er svært.</p>
-      </div>
-      <div class="card">
-        <div class="card-icon">👨‍👩‍👧</div>
-        <h3>Familier og par</h3>
-        <p>Samtaleterapi for par og familier der ønsker bedre kommunikation og forståelse for hinanden.</p>
-      </div>
-      <div class="card">
-        <div class="card-icon">🧒</div>
-        <h3>Børn og unge</h3>
-        <p>Specialist i klinisk børne- og ungdomspsykologi – med erfaring i leg, samtale og assessments.</p>
-      </div>
-      <div class="card">
-        <div class="card-icon">🔁</div>
-        <h3>Traumer og PTSD</h3>
-        <p>EMDR-certificeret specialist. Effektiv behandling af traumer og posttraumatisk stresssyndrom.</p>
-      </div>
-      <div class="card">
-        <div class="card-icon">🌱</div>
-        <h3>Selvværd og identitet</h3>
-        <p>Arbejde med lavt selvværd, mobning, eksistentielle spørgsmål og personlig udvikling.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-{% if recent_posts %}
-<section class="section section-alt">
-  <div class="container">
-    <h2>Seneste artikler</h2>
-    <p class="text-muted">Viden og refleksioner om psykologi og trivsel.</p>
-    <div class="post-list post-list--grid" style="margin-top:1.5rem;">
-      {% for post in recent_posts %}
-      <article class="post-card">
-        <div class="post-meta">
-          <time datetime="{{ post.date }}">{{ post.date.strftime('%d. %B %Y') }}</time>
+{# ── Services grid ── #}
+<section class="py-20 bg-base-200">
+  <div class="max-w-5xl mx-auto px-6">
+    <h2 class="text-3xl font-bold text-center mb-3">Hvad kan jeg hjælpe med?</h2>
+    <p class="text-center opacity-60 mb-10">Et udvalg af de problemstillinger, jeg arbejder med</p>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      {% for item in [
+        ('🧠', 'Angst og stress', 'Hjælp til at håndtere og reducere angst, bekymringer og stressrelaterede symptomer i hverdagen.'),
+        ('💔', 'Krise og sorg', 'Støtte ved personlige kriser, tab og sorg – at finde vej videre når livet er svært.'),
+        ('👨‍👩‍👧', 'Familier og par', 'Samtaleterapi for par og familier der ønsker bedre kommunikation og forståelse.'),
+        ('🧒', 'Børn og unge', 'Specialist i klinisk børne- og ungdomspsykologi med erfaring i leg, samtale og assessments.'),
+        ('🔁', 'Traumer og PTSD', 'EMDR-certificeret specialist. Effektiv behandling af traumer og PTSD.'),
+        ('🌱', 'Selvværd og identitet', 'Arbejde med lavt selvværd, mobning, eksistentielle spørgsmål og personlig udvikling.'),
+      ] %}
+      <div class="card bg-base-100 shadow-sm border border-base-300 hover:shadow-md transition-shadow">
+        <div class="card-body">
+          <div class="text-3xl mb-2">{{ item[0] }}</div>
+          <h3 class="card-title text-lg">{{ item[1] }}</h3>
+          <p class="text-sm opacity-70">{{ item[2] }}</p>
         </div>
-        <h3 class="post-title"><a href="/blog/{{ post.slug }}/">{{ post.title }}</a></h3>
-        {% if post.description %}
-        <p class="post-excerpt">{{ post.description }}</p>
-        {% endif %}
-        <a href="/blog/{{ post.slug }}/" class="post-readmore">Læs mere &rarr;</a>
-      </article>
+      </div>
       {% endfor %}
     </div>
-    <p style="margin-top:1.5rem;"><a href="/blog/" class="btn-primary">Se alle artikler</a></p>
+  </div>
+</section>
+
+{# ── Recent blog posts ── #}
+{% if recent_posts %}
+<section class="py-20">
+  <div class="max-w-5xl mx-auto px-6">
+    <h2 class="text-3xl font-bold mb-3">Seneste artikler</h2>
+    <p class="opacity-60 mb-10">Viden og refleksioner om psykologi og trivsel.</p>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      {% for post in recent_posts %}
+      <div class="card bg-base-100 border border-base-300 hover:shadow-md transition-shadow">
+        <div class="card-body">
+          <p class="text-xs opacity-50">{{ post.date.strftime('%d. %B %Y') }}</p>
+          <h3 class="card-title text-base leading-snug">
+            <a href="/blog/{{ post.slug }}/" class="hover:text-primary transition-colors">{{ post.title }}</a>
+          </h3>
+          <p class="text-sm opacity-70 flex-1">{{ post.description }}</p>
+          <div class="card-actions mt-2">
+            <a href="/blog/{{ post.slug }}/" class="btn btn-ghost btn-xs px-0 text-primary">Læs mere →</a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="mt-8">
+      <a href="/blog/" class="btn btn-outline btn-primary rounded-full">Se alle artikler</a>
+    </div>
   </div>
 </section>
 {% endif %}
 
-<section class="section">
-  <div class="container">
-    <div class="cta-box">
-      <h3>Klar til at tage det første skridt?</h3>
-      <p>Book en tid eller kontakt mig for at høre mere om, hvordan jeg kan hjælpe dig.</p>
-      <a href="/book-en-tid/" class="btn-primary">Book en tid</a>
+{# ── CTA ── #}
+<section class="py-20 bg-base-200">
+  <div class="max-w-5xl mx-auto px-6">
+    <div class="card bg-primary text-primary-content">
+      <div class="card-body text-center py-12">
+        <h2 class="text-3xl font-bold mb-3">Klar til at tage det første skridt?</h2>
+        <p class="opacity-80 mb-6 max-w-lg mx-auto">Book en tid eller kontakt mig for at høre mere om, hvordan jeg kan hjælpe dig.</p>
+        <div class="flex gap-3 justify-center flex-wrap">
+          <a href="/book-en-tid/" class="btn bg-white text-primary border-0 rounded-full hover:bg-white/90">Book en tid</a>
+          <a href="/kontakt/" class="btn btn-outline border-white text-white rounded-full hover:bg-white/10">Kontakt mig</a>
+        </div>
+      </div>
     </div>
   </div>
 </section>

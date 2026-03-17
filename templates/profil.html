@@ -4,78 +4,68 @@
 
 {% block content %}
 
-<section class="page-header">
-  <div class="container">
-    <h1>Profil</h1>
-    <p class="lead">Autoriseret psykolog cand. psyk. Astrid Skovgaard Bjørnekær</p>
+<section class="py-16 bg-base-200">
+  <div class="max-w-5xl mx-auto px-6">
+    <div class="breadcrumbs text-sm mb-4 opacity-60">
+      <ul><li><a href="/">Hjem</a></li><li>Profil</li></ul>
+    </div>
+    <h1 class="text-4xl font-bold">Profil</h1>
+    <p class="text-lg opacity-60 mt-2">Autoriseret psykolog cand. psyk. Astrid Skovgaard Bjørnekær</p>
   </div>
 </section>
 
-<section class="section">
-  <div class="container">
-    <div class="two-col">
+<section class="py-20">
+  <div class="max-w-5xl mx-auto px-6">
+    <div class="grid md:grid-cols-2 gap-12">
       <div>
-        <h2>Om mig</h2>
-        <p>
-          Jeg er uddannet cand. psych. fra Aarhus Universitet i 2003 med speciale i klinisk psykologi.
-          Jeg har mere end 27 års erfaring med at arbejde med mennesker i alle aldre – fra de mindste
-          børn til ældre voksne.
-        </p>
-        <p>
-          I 2023 opnåede jeg specialistgodkendelse som klinisk børne- og ungdomspsykolog af
-          Dansk Psykologforening, som jeg er aktivt medlem af.
-        </p>
-        <p>
-          Tidligere har jeg arbejdet i den kommunale PPR-regi (Gedved PPR og Vejle Amts PPR)
-          samt på Center for Høretab (CFH) i Fredericia – et specialundervisningstilbud for
-          børn og unge i alderen 5–23 år med høretab. Her varetog jeg neuropsykologiske og
-          emotionelle udredninger, individuel terapi, gruppeterapi, legeterapeutiske forløb
-          og sandspil (Erica-metoden).
-        </p>
-        <p>
-          I dag driver jeg privatpraksis i Aarhus, hvor jeg arbejder med børn, unge, voksne,
-          familier og par.
-        </p>
+        <h2 class="text-2xl font-bold mb-4">Om mig</h2>
+        <p class="opacity-80 mb-4">Jeg er uddannet cand. psych. fra Aarhus Universitet i 2003 med speciale i klinisk psykologi. Jeg har mere end 27 års erfaring med at arbejde med mennesker i alle aldre.</p>
+        <p class="opacity-80 mb-4">I 2023 opnåede jeg specialistgodkendelse som klinisk børne- og ungdomspsykolog af Dansk Psykologforening, som jeg er aktivt medlem af.</p>
+        <p class="opacity-80 mb-4">Tidligere har jeg arbejdet i den kommunale PPR-regi samt på Center for Høretab (CFH) i Fredericia, hvor jeg varetog neuropsykologiske og emotionelle udredninger, individuel terapi, gruppeterapi og sandspil.</p>
+        <p class="opacity-80 mb-8">I dag driver jeg privatpraksis i Aarhus, hvor jeg arbejder med børn, unge, voksne, familier og par.</p>
 
-        <h2 class="mt-2">Uddannelse og certifikater</h2>
-        <ul>
-          <li>Cand. psych., Aarhus Universitet, 2003 (klinisk psykologi)</li>
-          <li>Autoriseret psykolog</li>
-          <li>Specialistgodkendelse i klinisk børne- og ungdomspsykologi, 2023</li>
-          <li>EMDR-certificeret specialist</li>
-          <li>Uddannet i kognitiv terapi, mindfulness og mentalisering</li>
-          <li>Certificeret i Erica-metoden (sandspil)</li>
-          <li>Medlem af Dansk Psykologforening</li>
+        <h2 class="text-2xl font-bold mb-4">Uddannelse og certifikater</h2>
+        <ul class="space-y-2">
+          {% for item in [
+            'Cand. psych., Aarhus Universitet, 2003 (klinisk psykologi)',
+            'Autoriseret psykolog',
+            'Specialistgodkendelse i klinisk børne- og ungdomspsykologi, 2023',
+            'EMDR-certificeret specialist',
+            'Uddannet i kognitiv terapi, mindfulness og mentalisering',
+            'Certificeret i Erica-metoden (sandspil)',
+            'Medlem af Dansk Psykologforening',
+          ] %}
+          <li class="flex gap-2 text-sm">
+            <span class="text-primary mt-0.5">✓</span>
+            <span class="opacity-80">{{ item }}</span>
+          </li>
+          {% endfor %}
         </ul>
       </div>
 
       <div>
-        <h2>Faglige interesseområder</h2>
-        <p>Gennem min karriere har jeg opbygget særlig erfaring inden for:</p>
-        <ul>
-          <li>Klinisk børne- og ungdomspsykologi</li>
-          <li>Traumer og PTSD (EMDR)</li>
-          <li>Angst og stressrelaterede lidelser</li>
-          <li>Sorg og krise</li>
-          <li>Høretab og dets psykologiske konsekvenser</li>
-          <li>Neuropsykologiske udredninger</li>
-          <li>Relationelle vanskeligheder – par og familier</li>
-          <li>Lavt selvværd og mobning</li>
-        </ul>
-
-        <div class="info-box mt-2">
-          <strong>Etik og fortrolighed</strong>
-          <p>
-            Som autoriseret psykolog er jeg underlagt Psykologloven og Dansk Psykologforenings
-            etiske principper. Al information, du deler med mig, behandles strengt fortroligt.
-          </p>
+        <h2 class="text-2xl font-bold mb-4">Faglige interesseområder</h2>
+        <div class="flex flex-wrap gap-2 mb-8">
+          {% for tag in ['Klinisk børne- og ungdomspsykologi', 'Traumer og PTSD (EMDR)', 'Angst og stress', 'Sorg og krise', 'Høretab', 'Neuropsykologiske udredninger', 'Relationelle vanskeligheder', 'Lavt selvværd og mobning'] %}
+          <span class="badge badge-lg badge-outline">{{ tag }}</span>
+          {% endfor %}
         </div>
 
-        <div class="cta-box" style="margin-top:1.5rem; padding:1.5rem;">
-          <h3>Book en samtale</h3>
-          <p>Er du nysgerrig på, om vi passer godt sammen? Du er altid velkommen til at ringe
-             eller skrive, inden du booker.</p>
-          <a href="/book-en-tid/" class="btn-primary">Book en tid</a>
+        <div class="alert bg-primary/10 border-primary/20 mb-6">
+          <div>
+            <h3 class="font-semibold mb-1">Etik og fortrolighed</h3>
+            <p class="text-sm opacity-80">Som autoriseret psykolog er jeg underlagt Psykologloven og Dansk Psykologforenings etiske principper. Al information behandles strengt fortroligt.</p>
+          </div>
+        </div>
+
+        <div class="card bg-primary text-primary-content">
+          <div class="card-body">
+            <h3 class="card-title">Book en samtale</h3>
+            <p class="text-sm opacity-80">Er du nysgerrig på, om vi passer godt sammen? Du er altid velkommen til at ringe eller skrive inden du booker.</p>
+            <div class="card-actions mt-2">
+              <a href="/book-en-tid/" class="btn bg-white text-primary border-0 rounded-full btn-sm hover:bg-white/90">Book en tid</a>
+            </div>
+          </div>
         </div>
       </div>
     </div>

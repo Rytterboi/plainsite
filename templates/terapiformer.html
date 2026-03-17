@@ -1,104 +1,53 @@
 {% extends "base.html" %}
 {% block title %}Terapiformer{% endblock %}
-{% block meta_desc %}Oversigt over de terapeutiske metoder og tilgange jeg anvender – EMDR, kognitiv terapi, mindfulness, mentalisering og sandspil.{% endblock %}
+{% block meta_desc %}EMDR, kognitiv terapi, mindfulness, mentalisering og sandspil – oversigt over de metoder jeg anvender.{% endblock %}
 
 {% block content %}
 
-<section class="page-header">
-  <div class="container">
-    <h1>Terapiformer</h1>
-    <p class="lead">
-      Jeg arbejder ud fra flere veldokumenterede metoder og tilpasser tilgangen til den
-      enkelte persons behov og problemstilling.
-    </p>
+<section class="py-16 bg-base-200">
+  <div class="max-w-5xl mx-auto px-6">
+    <div class="breadcrumbs text-sm mb-4 opacity-60">
+      <ul><li><a href="/">Hjem</a></li><li>Terapiformer</li></ul>
+    </div>
+    <h1 class="text-4xl font-bold">Terapiformer</h1>
+    <p class="text-lg opacity-60 mt-2 max-w-2xl">Jeg arbejder ud fra flere veldokumenterede metoder og tilpasser tilgangen til den enkelte persons behov.</p>
   </div>
 </section>
 
-<section class="section">
-  <div class="container">
-
-    <div class="card-grid">
-      <div class="card">
-        <div class="card-icon">👁️</div>
-        <h3>EMDR</h3>
-        <p>
-          <em>Eye Movement Desensitization and Reprocessing</em> er en veldokumenteret og effektiv
-          behandlingsmetode til traumer og PTSD. Metoden hjælper hjernen med at bearbejde svære
-          minder, så de mister deres forstyrrende kraft.
-        </p>
-        <p>
-          Jeg er certificeret EMDR-specialist og anvender denne metode som en central del af
-          min traumebehandling.
-        </p>
+<section class="py-20">
+  <div class="max-w-5xl mx-auto px-6">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-12">
+      {% for icon, title, body in [
+        ('👁️', 'EMDR', 'Eye Movement Desensitization and Reprocessing – en veldokumenteret metode til traumer og PTSD anerkendt af WHO. Jeg er certificeret EMDR-specialist.'),
+        ('💭', 'Kognitiv terapi', 'Arbejder med sammenhængen mellem tanker, følelser og adfærd. En af de mest veldokumenterede psykologiske behandlinger for angst, depression og lavt selvværd.'),
+        ('🧘', 'Mindfulness', 'Bevidsthedstræning der handler om at være til stede i nuet. Reducerer stress, angst og grublen. Integreres typisk som del af et bredere forløb.'),
+        ('🤝', 'Mentalisering', 'Evnen til at forstå sig selv og andre indefra. Særlig effektiv ved relationelle vanskeligheder og tilknytningsproblematikker.'),
+        ('🏖️', 'Sandspil (Erica)', 'Legeterapeutisk metode der egner sig til børn og unge. Barnet skaber et symbolsk rum i sand og bearbejder oplevelser uden ord. Jeg er certificeret i Erica-metoden.'),
+        ('🎭', 'Legeterapeutiske metoder', 'For de yngste børn er leg den naturlige kommunikationsform. Jeg møder barnet på barnets præmisser og skaber kontakt og bearbejdning gennem leg.'),
+      ] %}
+      <div class="card bg-base-100 border border-base-300 hover:shadow-md transition-shadow">
+        <div class="card-body">
+          <div class="text-3xl mb-2">{{ icon }}</div>
+          <h3 class="card-title text-lg">{{ title }}</h3>
+          <p class="text-sm opacity-70">{{ body }}</p>
+        </div>
       </div>
+      {% endfor %}
+    </div>
 
-      <div class="card">
-        <div class="card-icon">💭</div>
-        <h3>Kognitiv terapi</h3>
-        <p>
-          Kognitiv terapi arbejder med sammenhængen mellem tanker, følelser og adfærd.
-          Gennem terapien lærer du at identificere og udfordre negative tankemønstre, der
-          vedligeholder problemer som angst, depression og lavt selvværd.
-        </p>
-        <p>Kognitiv terapi er en af de mest veldokumenterede psykologiske behandlinger.</p>
-      </div>
-
-      <div class="card">
-        <div class="card-icon">🧘</div>
-        <h3>Mindfulness</h3>
-        <p>
-          Mindfulness – eller bevidsthedstræning – handler om at være til stede i nuet uden
-          at dømme. Det kan hjælpe med at reducere stress, angst og grublen, og skaber
-          større kontakt med egne følelser og behov.
-        </p>
-        <p>Mindfulness integreres typisk som en del af et bredere terapeutisk forløb.</p>
-      </div>
-
-      <div class="card">
-        <div class="card-icon">🤝</div>
-        <h3>Mentalisering</h3>
-        <p>
-          Mentalisering handler om evnen til at forstå sig selv og andre indefra – at
-          forstå, at adfærd er drevet af følelser, tanker og behov. Mentaliserende terapi
-          er særlig effektiv ved relationelle vanskeligheder og tilknytningsproblematikker.
-        </p>
-      </div>
-
-      <div class="card">
-        <div class="card-icon">🏖️</div>
-        <h3>Sandspil (Erica-metoden)</h3>
-        <p>
-          Sandspil er en legeterapeutisk metode, der særlig egner sig til børn og unge.
-          Gennem brug af sand og figurer skabes et symbolsk rum, hvor barnet kan udtrykke
-          indre oplevelser og bearbejde vanskeligheder uden ord.
-        </p>
-        <p>Jeg er certificeret i Erica-metoden.</p>
-      </div>
-
-      <div class="card">
-        <div class="card-icon">🎭</div>
-        <h3>Legeterapeutiske metoder</h3>
-        <p>
-          For de yngste børn er leg den naturlige form for kommunikation. Jeg anvender
-          legeterapeutiske tilgange, der møder barnet på barnets præmisser og skaber
-          kontakt og bearbejdning gennem leg og kreativt udtryk.
-        </p>
+    <div class="alert bg-primary/10 border-primary/20 mb-8">
+      <div>
+        <h3 class="font-semibold mb-1">En individuel tilgang</h3>
+        <p class="text-sm opacity-80">Ingen forløb er ens. Jeg tilpasser altid metodevalg og tilgang til din specifikke situation, dine ressourcer og dine mål for terapien.</p>
       </div>
     </div>
 
-    <div class="info-box mt-2">
-      <strong>En individuel tilgang</strong>
-      <p>
-        Ingen forløb er ens. Jeg tilpasser altid metodevalg og tilgang til din specifikke
-        situation, dine ressourcer og dine mål for terapien. Vi aftaler løbende, hvordan
-        vi arbejder bedst muligt sammen.
-      </p>
-    </div>
-
-    <div class="cta-box">
-      <h3>Vil du høre mere?</h3>
-      <p>Kontakt mig, og vi taler om, hvilken tilgang der giver bedst mening for dig.</p>
-      <a href="/book-en-tid/" class="btn-primary">Book en tid</a>
+    <div class="card bg-primary text-primary-content">
+      <div class="card-body text-center py-10">
+        <h3 class="text-2xl font-bold mb-2">Vil du høre mere?</h3>
+        <p class="opacity-80 mb-4">Kontakt mig, og vi taler om hvilken tilgang der giver bedst mening for dig.</p>
+        <a href="/book-en-tid/" class="btn bg-white text-primary border-0 rounded-full hover:bg-white/90">Book en tid</a>
+      </div>
     </div>
   </div>
 </section>

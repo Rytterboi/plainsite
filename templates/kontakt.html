@@ -4,69 +4,67 @@
 
 {% block content %}
 
-<section class="page-header">
-  <div class="container">
-    <h1>Kontakt</h1>
-    <p class="lead">Du er altid velkommen til at ringe eller skrive til mig.</p>
+<section class="py-16 bg-base-200">
+  <div class="max-w-5xl mx-auto px-6">
+    <div class="breadcrumbs text-sm mb-4 opacity-60">
+      <ul><li><a href="/">Hjem</a></li><li>Kontakt</li></ul>
+    </div>
+    <h1 class="text-4xl font-bold">Kontakt</h1>
+    <p class="text-lg opacity-60 mt-2">Du er altid velkommen til at ringe eller skrive.</p>
   </div>
 </section>
 
-<section class="section">
-  <div class="container">
+<section class="py-20">
+  <div class="max-w-5xl mx-auto px-6">
 
-    <div class="contact-block">
-      <div class="contact-item">
-        <strong>Telefon</strong>
-        <a href="tel:+4540452626">+45 40 45 26 26</a>
-        <p class="text-muted" style="margin-top:0.5rem; font-size:0.9rem;">
-          Jeg besvarer opkald i åbningstiden. Uden for åbningstid er du velkommen til at
-          efterlade en besked, så ringer jeg tilbage hurtigst muligt.
-        </p>
+    <div class="grid sm:grid-cols-3 gap-4 mb-10">
+      <div class="card bg-base-100 border border-base-300">
+        <div class="card-body">
+          <h3 class="font-bold text-primary mb-1">Telefon</h3>
+          <a href="tel:+4540452626" class="text-xl font-semibold link link-hover">+45 40 45 26 26</a>
+          <p class="text-sm opacity-60 mt-2">Besvar opkald i åbningstiden. Efterlad gerne besked på telefonsvar.</p>
+        </div>
       </div>
-      <div class="contact-item">
-        <strong>E-mail</strong>
-        <a href="mailto:kontakt@aktivpsykologerne.dk">kontakt@aktivpsykologerne.dk</a>
-        <p class="text-muted" style="margin-top:0.5rem; font-size:0.9rem;">
-          Jeg besvarer mails hurtigst muligt – typisk inden for 1–2 hverdage.
-          Undgå venligst at sende følsomme oplysninger via ukrypteret mail.
-        </p>
+      <div class="card bg-base-100 border border-base-300">
+        <div class="card-body">
+          <h3 class="font-bold text-primary mb-1">E-mail</h3>
+          <a href="mailto:kontakt@aktivpsykologerne.dk" class="link link-hover text-sm break-all">kontakt@aktivpsykologerne.dk</a>
+          <p class="text-sm opacity-60 mt-2">Besvares inden for 1–2 hverdage.</p>
+        </div>
       </div>
-      <div class="contact-item">
-        <strong>Adresse</strong>
-        <span>Aldersrovej 38<br>8200 Aarhus N</span>
-        <p class="text-muted" style="margin-top:0.5rem; font-size:0.9rem;">
-          Der er parkering i området. Klinikken er tilgængelig med offentlig transport.
-        </p>
+      <div class="card bg-base-100 border border-base-300">
+        <div class="card-body">
+          <h3 class="font-bold text-primary mb-1">Adresse</h3>
+          <p class="font-semibold">Aldersrovej 38<br>8200 Aarhus N</p>
+          <p class="text-sm opacity-60 mt-2">Parkering i området. Tilgængelig med offentlig transport.</p>
+        </div>
       </div>
     </div>
 
-    <div class="info-box mt-2">
-      <strong>Akut behov</strong>
-      <p>
-        Har du akut brug for hjælp, tilstræber jeg at kunne tilbyde tid inden for 24 timer.
-        Ring til mig på <a href="tel:+4540452626">+45 40 45 26 26</a>.
-      </p>
-      <p>
-        Ved psykiatrisk krise uden for åbningstid kan du kontakte
-        <strong>Psykiatrisk Akutmodtagelse, Aarhus Universitetshospital, tlf. 78 47 00 00</strong>,
-        eller ringe 112.
-      </p>
+    <div class="alert bg-primary/10 border-primary/20 mb-8">
+      <div>
+        <h3 class="font-semibold mb-1">Akut behov</h3>
+        <p class="text-sm opacity-80">Jeg tilstræber tid inden for 24 timer ved akut behov. Ring på <a href="tel:+4540452626" class="link">+45 40 45 26 26</a>.</p>
+        <p class="text-sm opacity-60 mt-1">Ved psykiatrisk krise uden for åbningstid: Psykiatrisk Akutmodtagelse, Aarhus Universitetshospital – tlf. 78 47 00 00, eller ring 112.</p>
+      </div>
     </div>
 
-    <div class="mt-2" style="border:1px solid #e8e2da; border-radius:6px; overflow:hidden;">
+    <div class="rounded-xl overflow-hidden border border-base-300 mb-8">
       <iframe
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2219.4!2d10.2!3d56.18!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sAldersrovej+38%2C+8200+Aarhus+N!5e0!3m2!1sda!2sdk!4v1"
-        width="100%" height="320" style="border:0; display:block;" allowfullscreen loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
-        title="Kort over klinikkens beliggenhed">
+        width="100%" height="300" style="border:0; display:block;" allowfullscreen loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade" title="Kort over klinikkens beliggenhed">
       </iframe>
     </div>
 
-    <div class="cta-box">
-      <h3>Book en tid online</h3>
-      <p>Du kan også booke direkte via vores bookingsystem.</p>
-      <a href="/book-en-tid/" class="btn-primary">Book en tid</a>
+    <div class="card bg-primary text-primary-content">
+      <div class="card-body text-center py-10">
+        <h3 class="text-2xl font-bold mb-2">Book en tid online</h3>
+        <p class="opacity-80 mb-4">Du kan også booke direkte via vores bookingsystem.</p>
+        <a href="/book-en-tid/" class="btn bg-white text-primary border-0 rounded-full hover:bg-white/90">Book en tid</a>
+      </div>
     </div>
+
   </div>
 </section>
 

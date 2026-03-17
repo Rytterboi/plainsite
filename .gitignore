@@ -1,9 +1,12 @@
+# Python
 .venv/
-.dockerignore
 __pycache__/
 *.pyc
-*.pyo
 .env
-*.egg-info/
-dist/
+
+# Client-specific content (tracked in client forks, not in template)
+static/img/*
+!static/img/.gitkeep
+
+# OS
 .DS_Store

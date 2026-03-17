@@ -1,64 +1,56 @@
 {% extends "base.html" %}
 {% block title %}Afbud{% endblock %}
-{% block meta_desc %}Afbudspolitik hos Aktivpsykologerne – afmelding af aftaler og hvad du skal gøre ved sygdom.{% endblock %}
+{% block meta_desc %}Afbudspolitik hos Aktivpsykologerne – afmelding skal ske senest 24 timer inden aftalt tid.{% endblock %}
 
 {% block content %}
 
-<section class="page-header">
-  <div class="container">
-    <h1>Afbud</h1>
-    <p class="lead">Information om afmelding og afbudspolitik.</p>
+<section class="py-16 bg-base-200">
+  <div class="max-w-5xl mx-auto px-6">
+    <div class="breadcrumbs text-sm mb-4 opacity-60">
+      <ul><li><a href="/">Hjem</a></li><li><a href="/praktisk-info/">Praktisk info</a></li><li>Afbud</li></ul>
+    </div>
+    <h1 class="text-4xl font-bold">Afbud</h1>
+    <p class="text-lg opacity-60 mt-2">Information om afmelding og afbudspolitik.</p>
   </div>
 </section>
 
-<section class="section">
-  <div class="container">
-    <div class="info-box">
-      <strong>Vigtig information</strong>
-      <p>
-        Afbud skal gives <strong>senest 24 timer</strong> inden den aftalte tid for at
-        undgå at blive opkrævet for sessionen.
-      </p>
+<section class="py-20">
+  <div class="max-w-3xl mx-auto px-6 space-y-8">
+
+    <div class="alert alert-warning">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+      </svg>
+      <div>
+        <h3 class="font-bold">Afbud senest 24 timer inden aftalt tid</h3>
+        <p class="text-sm">Afbud med kortere varsel medfører fuld betaling for sessionen.</p>
+      </div>
     </div>
 
-    <h2 class="mt-2">Sådan giver du afbud</h2>
-    <p>
-      Afbud gives pr. telefon eller SMS til
-      <a href="tel:+4540452626">+45 40 45 26 26</a> eller pr. mail til
-      <a href="mailto:kontakt@aktivpsykologerne.dk">kontakt@aktivpsykologerne.dk</a>.
-    </p>
-    <p>
-      Du er velkommen til at sende en SMS eller efterlade en besked på telefonsvareren
-      uden for åbningstid.
-    </p>
-
-    <h2 class="mt-2">Sent afbud og udeblivelse</h2>
-    <p>
-      Afbud givet <strong>mindre end 24 timer</strong> inden sessionen – eller hvis du
-      udebliver uden at give besked – opkræves du for den fulde sessionspris.
-    </p>
-    <p>
-      Dette gælder uanset årsag, da den reserverede tid ikke kan fyldes op med kortere
-      varsel.
-    </p>
-
-    <h2 class="mt-2">Sygdom</h2>
-    <p>
-      Er du akut syg og ikke i stand til at møde op, bedes du give besked hurtigst muligt.
-      Vi forsøger at finde en ny tid til dig hurtigst muligt.
-    </p>
-
-    <h2 class="mt-2">Mine aflysninger</h2>
-    <p>
-      Hvis jeg af uforudsete årsager er nødt til at aflyse en aftalt session, giver jeg
-      besked hurtigst muligt og tilbyder en ny tid.
-    </p>
-
-    <div class="cta-box">
-      <h3>Skal du afmelde en tid?</h3>
-      <p>Kontakt mig hurtigst muligt på telefon eller mail.</p>
-      <a href="tel:+4540452626" class="btn-primary">Ring: +45 40 45 26 26</a>
+    <div>
+      <h2 class="text-2xl font-bold mb-3">Sådan giver du afbud</h2>
+      <p class="opacity-80">Afbud gives pr. telefon eller SMS til <a href="tel:+4540452626" class="link link-primary">+45 40 45 26 26</a> eller pr. mail til <a href="mailto:kontakt@aktivpsykologerne.dk" class="link link-primary">kontakt@aktivpsykologerne.dk</a>.</p>
+      <p class="opacity-80 mt-2">Du er velkommen til at sende en SMS eller efterlade en besked på telefonsvareren uden for åbningstid.</p>
     </div>
+
+    <div>
+      <h2 class="text-2xl font-bold mb-3">Sent afbud og udeblivelse</h2>
+      <p class="opacity-80">Afbud givet mindre end 24 timer inden sessionen – eller udeblivelse uden besked – opkræves for den fulde sessionspris, uanset årsagen.</p>
+    </div>
+
+    <div>
+      <h2 class="text-2xl font-bold mb-3">Mine aflysninger</h2>
+      <p class="opacity-80">Hvis jeg er nødt til at aflyse, giver jeg besked hurtigst muligt og tilbyder en ny tid.</p>
+    </div>
+
+    <div class="card bg-primary text-primary-content">
+      <div class="card-body text-center py-8">
+        <h3 class="text-xl font-bold mb-2">Skal du afmelde en tid?</h3>
+        <p class="opacity-80 mb-4 text-sm">Kontakt mig hurtigst muligt på telefon eller mail.</p>
+        <a href="tel:+4540452626" class="btn bg-white text-primary border-0 rounded-full hover:bg-white/90">Ring: +45 40 45 26 26</a>
+      </div>
+    </div>
+
   </div>
 </section>
 

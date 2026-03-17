@@ -1,84 +1,65 @@
 {% extends "base.html" %}
 {% block title %}Praktisk info{% endblock %}
-{% block meta_desc %}Praktisk information om psykologsamtaler hos Aktivpsykologerne i Aarhus – beliggenhed, parkering, tilgængelighed og andet.{% endblock %}
+{% block meta_desc %}Praktisk information om psykologsamtaler hos Aktivpsykologerne i Aarhus.{% endblock %}
 
 {% block content %}
 
-<section class="page-header">
-  <div class="container">
-    <h1>Praktisk info</h1>
-    <p class="lead">Alt du skal vide, inden du møder op til din første samtale.</p>
+<section class="py-16 bg-base-200">
+  <div class="max-w-5xl mx-auto px-6">
+    <div class="breadcrumbs text-sm mb-4 opacity-60">
+      <ul><li><a href="/">Hjem</a></li><li>Praktisk info</li></ul>
+    </div>
+    <h1 class="text-4xl font-bold">Praktisk info</h1>
+    <p class="text-lg opacity-60 mt-2">Alt du skal vide inden din første samtale.</p>
   </div>
 </section>
 
-<section class="section">
-  <div class="container">
-    <div class="two-col">
-      <div>
-        <h2>Klinik og beliggenhed</h2>
-        <p>
-          Klinikken ligger på <strong>Aldersrovej 38, 8200 Aarhus N</strong>.
-        </p>
-        <p>
-          Der er gode parkeringsmuligheder i området. Klinikken er tilgængelig med offentlig
-          transport – se ruter på rejseplanen.dk.
-        </p>
-
-        <h2 class="mt-2">Samtalernes varighed</h2>
-        <p>
-          En standardsession varer <strong>50 minutter</strong>. Første møde er et afklarende
-          møde, hvor vi taler om din situation og hvad du ønsker hjælp til.
-        </p>
-        <p>
-          Vi aftaler frekvens og antal sessioner individuelt – typisk mødes vi ugentligt
-          eller hver anden uge.
-        </p>
-
-        <h2 class="mt-2">Kontakt og booking</h2>
-        <p>
-          Du booker tid via bookingsystemet på <a href="/book-en-tid/">book-en-tid-siden</a>,
-          pr. telefon <a href="tel:+4540452626">+45 40 45 26 26</a> eller pr. mail
-          <a href="mailto:kontakt@aktivpsykologerne.dk">kontakt@aktivpsykologerne.dk</a>.
-        </p>
-        <p>
-          Jeg besvarer henvendelser hurtigst muligt og tilstræber at tilbyde tid inden for
-          24 timer ved akut behov.
-        </p>
-      </div>
-
-      <div>
-        <h2>Fortrolighed og tavshedspligt</h2>
-        <p>
-          Som autoriseret psykolog er jeg underlagt skærpet tavshedspligt. Alt hvad du
-          fortæller mig, forbliver mellem os. Tavshedspligten gælder også over for
-          pårørende, arbejdsgiver og andre – med mindre du aktivt giver samtykke til andet.
-        </p>
-
-        <h2 class="mt-2">Tilskud fra regionen</h2>
-        <p>
-          Det er muligt at søge tilskud til psykologhjælp via din praktiserende læge, hvis
-          du opfylder visse kriterier (f.eks. let til moderat depression eller angst,
-          sygdomsangst, tilpasningsreaktion efter tab m.fl.).
-        </p>
-        <p>
-          Spørg din læge om en henvisning til psykolog via sygesikringen, og kontakt mig
-          herefter for at aftale en tid.
-        </p>
-
-        <div class="info-box mt-2">
-          <strong>Husk ved første samtale</strong>
-          <ul>
-            <li>Ankomst et par minutter inden din tid</li>
-            <li>Medbring evt. din sygesikringsbevis/sundhedskort</li>
-            <li>Hvis du har fået en henvisning fra din læge, medbring den</li>
-          </ul>
+<section class="py-20">
+  <div class="max-w-5xl mx-auto px-6">
+    <div class="grid md:grid-cols-2 gap-12">
+      <div class="space-y-8">
+        <div>
+          <h2 class="text-2xl font-bold mb-3">Klinik og beliggenhed</h2>
+          <p class="opacity-80">Klinikken ligger på <strong>Aldersrovej 38, 8200 Aarhus N</strong>. Der er gode parkeringsmuligheder i området og adgang med offentlig transport.</p>
+        </div>
+        <div>
+          <h2 class="text-2xl font-bold mb-3">Samtalernes varighed</h2>
+          <p class="opacity-80">En standardsession varer <strong>50 minutter</strong>. Vi aftaler frekvens og antal sessioner individuelt – typisk ugentligt eller hver anden uge.</p>
+        </div>
+        <div>
+          <h2 class="text-2xl font-bold mb-3">Kontakt og booking</h2>
+          <p class="opacity-80 mb-2">Book via <a href="/book-en-tid/" class="link link-primary">bookingsiden</a>, telefon <a href="tel:+4540452626" class="link link-primary">+45 40 45 26 26</a> eller mail <a href="mailto:kontakt@aktivpsykologerne.dk" class="link link-primary">kontakt@aktivpsykologerne.dk</a>.</p>
+          <p class="opacity-80">Jeg tilstræber at tilbyde tid inden for 24 timer ved akut behov.</p>
         </div>
       </div>
-    </div>
 
-    <div style="display:flex; gap:1rem; flex-wrap:wrap; margin-top:2rem;">
-      <a href="/pris-og-betaling/" class="btn-primary">Pris og betaling</a>
-      <a href="/afbud/" class="btn-primary" style="background:var(--text-light);">Afbudspolitik</a>
+      <div class="space-y-6">
+        <div>
+          <h2 class="text-2xl font-bold mb-3">Fortrolighed og tavshedspligt</h2>
+          <p class="opacity-80">Som autoriseret psykolog er jeg underlagt skærpet tavshedspligt. Alt hvad du fortæller mig, forbliver mellem os – også over for pårørende og arbejdsgiver.</p>
+        </div>
+        <div>
+          <h2 class="text-2xl font-bold mb-3">Tilskud fra regionen</h2>
+          <p class="opacity-80 mb-2">Det er muligt at søge tilskud via din praktiserende læge ved visse diagnoser (let-moderat depression, angst, sygdomsangst m.fl.).</p>
+          <p class="opacity-80">Spørg din læge om en henvisning og kontakt mig herefter.</p>
+        </div>
+
+        <div class="alert bg-primary/10 border-primary/20">
+          <div>
+            <h3 class="font-semibold mb-2">Husk ved første samtale</h3>
+            <ul class="text-sm opacity-80 space-y-1 list-disc list-inside">
+              <li>Ankomst et par minutter inden din tid</li>
+              <li>Medbring eventuelt dit sundhedskort</li>
+              <li>Medbring henvisning fra din læge hvis du har en</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="flex gap-3 flex-wrap">
+          <a href="/pris-og-betaling/" class="btn btn-primary rounded-full">Pris og betaling</a>
+          <a href="/afbud/" class="btn btn-outline rounded-full">Afbudspolitik</a>
+        </div>
+      </div>
     </div>
   </div>
 </section>

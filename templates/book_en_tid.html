@@ -4,77 +4,70 @@
 
 {% block content %}
 
-<section class="page-header">
-  <div class="container">
-    <h1>Book en tid</h1>
-    <p class="lead">Vælg den bookingmåde der passer dig bedst.</p>
+<section class="py-16 bg-base-200">
+  <div class="max-w-5xl mx-auto px-6">
+    <div class="breadcrumbs text-sm mb-4 opacity-60">
+      <ul><li><a href="/">Hjem</a></li><li>Book en tid</li></ul>
+    </div>
+    <h1 class="text-4xl font-bold">Book en tid</h1>
+    <p class="text-lg opacity-60 mt-2">Vælg den bookingmåde der passer dig bedst.</p>
   </div>
 </section>
 
-<section class="section">
-  <div class="container">
-
-    <div class="two-col">
+<section class="py-20">
+  <div class="max-w-5xl mx-auto px-6">
+    <div class="grid md:grid-cols-2 gap-12">
       <div>
-        <h2>Online booking</h2>
-        <p>
-          Du kan booke tid direkte via bookingsystemet herunder. Vælg en ledig tid,
-          og du vil modtage en bekræftelse pr. mail.
-        </p>
+        <h2 class="text-2xl font-bold mb-4">Online booking</h2>
+        <p class="opacity-80 mb-6">Vælg en ledig tid nedenfor. Du modtager en bekræftelse pr. mail.</p>
 
-        <!-- ── Indsæt dit bookingsystem her ──────────────────────────── -->
-        <!-- F.eks. en embed fra Calendly, Mindbody, Planway, Cliniko el.lign. -->
-        <!-- Eksempel:
-        <div class="calendly-inline-widget"
-             data-url="https://calendly.com/DIT-LINK"
-             style="min-width:320px;height:630px;">
-        </div>
-        <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-        -->
+        {# ── INSERT BOOKING EMBED HERE ──────────────────────────────────────
+           F.eks. Calendly, Planway, Cliniko, MindBody el.lign.
 
-        <div class="info-box">
-          <strong>Bookingsystem</strong>
-          <p>
-            Indsæt embed-kode fra dit bookingsystem her (Calendly, Planway, Cliniko el.lign.).
-            Indtil da kan du booke pr. telefon eller mail nedenfor.
-          </p>
+           Calendly eksempel:
+           <div class="calendly-inline-widget"
+                data-url="https://calendly.com/DIT-LINK"
+                style="min-width:320px;height:630px;">
+           </div>
+           <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+        ── ────────────────────────────────────────────────────────────────── #}
+
+        <div class="alert bg-primary/10 border-primary/20">
+          <div>
+            <h3 class="font-semibold mb-1">Bookingsystem</h3>
+            <p class="text-sm opacity-80">Indsæt embed-kode fra dit bookingsystem her. Indtil da kan du booke pr. telefon eller mail.</p>
+          </div>
         </div>
       </div>
 
       <div>
-        <h2>Kontakt direkte</h2>
-        <p>Du kan også ringe eller skrive til mig for at aftale en tid:</p>
-
-        <div class="contact-item" style="margin-bottom:1rem;">
-          <strong>Telefon</strong>
-          <a href="tel:+4540452626" style="font-size:1.2rem;">+45 40 45 26 26</a>
-        </div>
-        <div class="contact-item">
-          <strong>E-mail</strong>
-          <a href="mailto:kontakt@aktivpsykologerne.dk">kontakt@aktivpsykologerne.dk</a>
-        </div>
-
-        <div class="info-box" style="margin-top:1.5rem;">
-          <strong>Akut behov?</strong>
-          <p>
-            Jeg tilstræber at tilbyde tid inden for 24 timer ved akut behov.
-            Ring til mig direkte.
-          </p>
+        <h2 class="text-2xl font-bold mb-4">Kontakt direkte</h2>
+        <div class="space-y-4 mb-6">
+          <div class="card bg-base-100 border border-base-300">
+            <div class="card-body py-4">
+              <p class="text-xs opacity-50 mb-1">Telefon</p>
+              <a href="tel:+4540452626" class="text-2xl font-bold link link-hover">+45 40 45 26 26</a>
+            </div>
+          </div>
+          <div class="card bg-base-100 border border-base-300">
+            <div class="card-body py-4">
+              <p class="text-xs opacity-50 mb-1">E-mail</p>
+              <a href="mailto:kontakt@aktivpsykologerne.dk" class="link link-primary">kontakt@aktivpsykologerne.dk</a>
+            </div>
+          </div>
         </div>
 
-        <h3 class="mt-2">Hvad sker der ved første samtale?</h3>
-        <p>
-          Den første session er et afklarende møde, hvor vi taler om din situation
-          og hvad du ønsker hjælp til. Der er ingen forpligtelse til at fortsætte,
-          og du bestemmer selv, om du vil starte et forløb.
-        </p>
-        <p>
-          Vi aftaler tid, sted og pris inden sessionen.
-          Sessionen varer 50 minutter.
-        </p>
+        <div class="alert bg-primary/10 border-primary/20 mb-6">
+          <div>
+            <h3 class="font-semibold mb-1">Akut behov?</h3>
+            <p class="text-sm opacity-80">Jeg tilstræber at tilbyde tid inden for 24 timer. Ring til mig direkte.</p>
+          </div>
+        </div>
+
+        <h3 class="text-lg font-bold mb-2">Hvad sker der ved første samtale?</h3>
+        <p class="text-sm opacity-80">Den første session er et afklarende møde. Ingen forpligtelse til at fortsætte – du bestemmer selv. Sessionen varer 50 minutter.</p>
       </div>
     </div>
-
   </div>
 </section>
 

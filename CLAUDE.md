@@ -90,16 +90,53 @@ Drop in `blog/`. Future-dated posts stay hidden automatically.
 
 ```bash
 gh repo create clientname --template Rytterboi/plainsite
+cd clientname
 ```
 
 Then:
-1. Swap all content in templates
-2. Update `SITE_URL` in `run.py`
-3. Update CSS variables in `static/style.css` for brand colours/fonts
-4. Connect to Railway, point client DNS
-5. Set `GOOGLE_VERIFICATION_CODE` once they verify Search Console
+1. Edit page templates in `templates/` with client content
+2. Update `SITE_URL` and contact details in `run.py`
+3. Update primary colour in `static/style.css` (one line)
+4. Drop client images in `static/img/`
+5. Replace/add blog posts in `blog/`
+6. Connect to Railway, point client DNS
+7. Set `GOOGLE_VERIFICATION_CODE` once they verify Search Console
 
 Half a day start to finish for a standard site.
+
+## Syncing infrastructure from upstream
+
+When plainsite template improves (new features, bug fixes, DaisyUI updates),
+pull just the infrastructure files into a client fork — never the content files.
+
+```bash
+# Once: add upstream remote
+git remote add upstream https://github.com/Rytterboi/plainsite
+
+# Sync infrastructure (safe — these files don't contain client content)
+git fetch upstream
+git checkout upstream/main -- \
+  run.py \
+  templates/base.html \
+  static/style.css \
+  Procfile Dockerfile runtime.txt requirements.txt shell.nix CLAUDE.md
+
+git commit -m "Sync infrastructure from upstream plainsite"
+```
+
+**What syncs:** routing, blog engine, SEO stack, navbar, footer, DaisyUI version, deploy config.
+**What never syncs:** page templates, blog posts, client images, `SITE_URL`, `GOOGLE_VERIFICATION_CODE`.
+No merge conflicts because you're explicitly checking out specific files, not merging.
+
+## Per-client theming
+
+One line in `static/style.css`:
+```css
+[data-theme="light"], :root {
+  --color-primary: oklch(54% 0.08 155);  /* ← change this */
+}
+```
+Use [oklch.com](https://oklch.com) to pick a colour. Dark mode is handled automatically by DaisyUI.
 
 ## Google Search Console
 

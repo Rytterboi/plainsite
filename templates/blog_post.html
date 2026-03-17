@@ -4,27 +4,45 @@
 
 {% block content %}
 
-<section class="page-header">
-  <div class="container">
-    <p class="post-breadcrumb"><a href="/blog/">Blog</a> &rsaquo; {{ post.title }}</p>
-    <h1>{{ post.title }}</h1>
-    <p class="lead">
+<section class="py-16 bg-base-200">
+  <div class="max-w-3xl mx-auto px-6">
+    <div class="breadcrumbs text-sm mb-4 opacity-60">
+      <ul><li><a href="/">Hjem</a></li><li><a href="/blog/">Blog</a></li><li class="truncate max-w-xs">{{ post.title }}</li></ul>
+    </div>
+    <h1 class="text-4xl font-bold leading-tight">{{ post.title }}</h1>
+    <p class="opacity-50 mt-3 text-sm">
       <time datetime="{{ post.date }}">{{ post.date.strftime('%d. %B %Y') }}</time>
-      &nbsp;&middot;&nbsp; Astrid S. Bjørnekær
+      &nbsp;·&nbsp; Astrid S. Bjørnekær
     </p>
   </div>
 </section>
 
-<section class="section">
-  <div class="container">
-    <div class="post-body">
+<section class="py-16">
+  <div class="max-w-3xl mx-auto px-6">
+    {# Tailwind Typography renders the markdown HTML beautifully #}
+    <article class="prose prose-lg max-w-none dark:prose-invert">
       {{ post.html | safe }}
+    </article>
+
+    <div class="divider my-12"></div>
+
+    <div class="card bg-base-200 border border-base-300">
+      <div class="card-body">
+        <div class="flex gap-4 items-start">
+          <div>
+            <p class="font-bold">Astrid Skovgaard Bjørnekær</p>
+            <p class="text-sm opacity-70 mt-1">Autoriseret psykolog og specialist i klinisk børne- og ungdomspsykologi. Privatpraksis på Aldersrovej 38, 8200 Aarhus N.</p>
+            <div class="flex gap-2 mt-3 flex-wrap">
+              <a href="/profil/" class="btn btn-outline btn-sm rounded-full">Om mig</a>
+              <a href="/book-en-tid/" class="btn btn-primary btn-sm rounded-full">Book en tid</a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div class="post-footer">
-      <p><strong>Astrid Skovgaard Bjørnekær</strong> er autoriseret psykolog og specialist i
-      klinisk børne- og ungdomspsykologi. Hun driver privatpraksis på Aldersrovej 38, 8200 Aarhus N.</p>
-      <a href="/blog/" class="btn-primary" style="margin-top:1rem; display:inline-block;">&larr; Alle artikler</a>
+    <div class="mt-8">
+      <a href="/blog/" class="btn btn-ghost btn-sm px-0 text-primary">← Alle artikler</a>
     </div>
   </div>
 </section>

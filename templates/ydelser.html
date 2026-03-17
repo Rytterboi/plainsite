@@ -4,102 +4,59 @@
 
 {% block content %}
 
-<section class="page-header">
-  <div class="container">
-    <h1>Ydelser</h1>
-    <p class="lead">Jeg tilbyder psykologhjælp til børn, unge, voksne, familier og par.</p>
+<section class="py-16 bg-base-200">
+  <div class="max-w-5xl mx-auto px-6">
+    <div class="breadcrumbs text-sm mb-4 opacity-60">
+      <ul><li><a href="/">Hjem</a></li><li>Ydelser</li></ul>
+    </div>
+    <h1 class="text-4xl font-bold">Ydelser</h1>
+    <p class="text-lg opacity-60 mt-2">Jeg tilbyder psykologhjælp til børn, unge, voksne, familier og par.</p>
   </div>
 </section>
 
-<section class="section">
-  <div class="container">
-    <p>
-      Nedenfor finder du en oversigt over de ydelser, jeg tilbyder. Alle forløb tilrettelægges
-      individuelt ud fra dine behov og ønsker. Det første møde er et afklarende møde, hvor
-      vi taler om, hvad du ønsker hjælp til, og hvad vi kan opnå sammen.
-    </p>
+<section class="py-20">
+  <div class="max-w-5xl mx-auto px-6">
+    <p class="opacity-70 mb-10 max-w-2xl">Alle forløb tilrettelægges individuelt ud fra dine behov og ønsker. Det første møde er et afklarende møde, hvor vi taler om hvad du ønsker hjælp til.</p>
 
-    <div class="card-grid">
-      <div class="card">
-        <div class="card-icon">👤</div>
-        <h3>Individuel terapi – voksne</h3>
-        <p>
-          Psykologsamtaler til voksne, der oplever udfordringer i livet – uanset om det er
-          angst, depression, stress, sorg, traumer, lavt selvværd, eksistentielle spørgsmål
-          eller andre vanskeligheder.
-        </p>
-        <p>Forløbet planlægges fleksibelt og tilpasses dine behov.</p>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-12">
+      {% for icon, title, body in [
+        ('👤', 'Individuel terapi – voksne', 'Psykologsamtaler til voksne der oplever udfordringer – angst, depression, stress, sorg, traumer, lavt selvværd eller andre vanskeligheder.'),
+        ('🧒', 'Børn og unge', 'Specialiseret hjælp til børn og unge med emotionelle, adfærdsmæssige eller sociale vanskeligheder. Legeterapeutiske metoder og sandspil.'),
+        ('💑', 'Parterapi', 'Samtaler for par der ønsker at styrke relationen, forbedre kommunikationen eller arbejde med konflikter og tillid.'),
+        ('👨‍👩‍👧‍👦', 'Familiesamtaler', 'Familier der oplever konflikter eller svære overgange kan have gavn af samtaler, hvor alle parters oplevelse høres og arbejdes med.'),
+        ('🔎', 'Psykologisk udredning', 'Neuropsykologiske og emotionelle udredninger for børn og unge som grundlag for støtte og tilrettelæggelse af indsats.'),
+        ('⚡', 'Akut hjælp', 'Jeg tilstræber at tilbyde tid inden for 24 timer ved akut behov. Ring på +45 40 45 26 26.'),
+      ] %}
+      <div class="card bg-base-100 border border-base-300 hover:shadow-md transition-shadow">
+        <div class="card-body">
+          <div class="text-3xl mb-2">{{ icon }}</div>
+          <h3 class="card-title text-lg">{{ title }}</h3>
+          <p class="text-sm opacity-70">{{ body }}</p>
+        </div>
       </div>
+      {% endfor %}
+    </div>
 
-      <div class="card">
-        <div class="card-icon">🧒</div>
-        <h3>Børn og unge</h3>
-        <p>
-          Specialiseret psykologhjælp til børn og unge med emotionelle, adfærdsmæssige eller
-          sociale vanskeligheder. Jeg anvender legeterapeutiske metoder, sandspil og
-          alderssvarende samtaleterapi.
-        </p>
-        <p>
-          Forældrene inddrages på en måde, der passer til barnets alder og situation.
-        </p>
-      </div>
-
-      <div class="card">
-        <div class="card-icon">💑</div>
-        <h3>Parterapi</h3>
-        <p>
-          Samtaler for par, der ønsker at styrke deres relation, forbedre kommunikationen
-          eller arbejde med konflikter og tillid.
-        </p>
-        <p>
-          Parterapien tager udgangspunkt i begge parters perspektiver og ressourcer.
-        </p>
-      </div>
-
-      <div class="card">
-        <div class="card-icon">👨‍👩‍👧‍👦</div>
-        <h3>Familiesamtaler</h3>
-        <p>
-          Familier, der oplever konflikter, kommunikationsvanskeligheder eller svære
-          overgange, kan have gavn af familiesamtaler, hvor alle parters oplevelse
-          høres og arbejdes med.
-        </p>
-      </div>
-
-      <div class="card">
-        <div class="card-icon">🔎</div>
-        <h3>Psykologisk udredning</h3>
-        <p>
-          Neuropsykologiske og emotionelle udredninger for børn og unge. Udredningerne
-          kan danne grundlag for støtte og tilrettelæggelse af undervisning eller
-          behandling.
-        </p>
-      </div>
-
-      <div class="card">
-        <div class="card-icon">⚡</div>
-        <h3>Akut hjælp</h3>
-        <p>
-          Jeg tilstræber at kunne tilbyde tid inden for 24 timer ved akut behov.
-          Kontakt mig på telefon <a href="tel:+4540452626">+45 40 45 26 26</a>
-          eller mail.
-        </p>
+    <div class="alert bg-primary/10 border-primary/20 mb-8">
+      <div>
+        <h3 class="font-semibold mb-2">Problemstillinger jeg arbejder med</h3>
+        <div class="flex flex-wrap gap-2 mt-2">
+          {% for tag in ['Angst', 'Stress', 'Depression', 'Sorg', 'Krise', 'Traumer og PTSD', 'Lavt selvværd', 'Mobning', 'Relationsproblemer', 'Eksistentielle spørgsmål', 'Tilknytningsvanskeligheder', 'Adfærdsvanskeligheder', 'Høretab'] %}
+          <span class="badge badge-outline">{{ tag }}</span>
+          {% endfor %}
+        </div>
       </div>
     </div>
 
-    <div class="info-box mt-2">
-      <strong>Problemstillinger jeg arbejder med</strong>
-      <p>
-        Angst · Stress · Depression · Sorg · Krise · Traumer og PTSD · Lavt selvværd ·
-        Mobning · Relationsproblemer · Eksistentielle spørgsmål · Tilknytningsvanskeligheder ·
-        Adfærdsvanskeligheder hos børn · Høretab og dets psykologiske konsekvenser
-      </p>
-    </div>
-
-    <div class="cta-box">
-      <h3>Usikker på om jeg kan hjælpe dig?</h3>
-      <p>Ring eller skriv til mig – så tager vi en kort indledende snak om din situation.</p>
-      <a href="/kontakt/" class="btn-primary">Kontakt mig</a>
+    <div class="card bg-primary text-primary-content">
+      <div class="card-body text-center py-10">
+        <h3 class="text-2xl font-bold mb-2">Usikker på om jeg kan hjælpe dig?</h3>
+        <p class="opacity-80 mb-4">Ring eller skriv – så tager vi en kort indledende snak om din situation.</p>
+        <div class="flex gap-3 justify-center flex-wrap">
+          <a href="/kontakt/" class="btn bg-white text-primary border-0 rounded-full hover:bg-white/90">Kontakt mig</a>
+          <a href="/book-en-tid/" class="btn btn-outline border-white text-white rounded-full hover:bg-white/10">Book en tid</a>
+        </div>
+      </div>
     </div>
   </div>
 </section>

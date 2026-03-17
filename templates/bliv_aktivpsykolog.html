@@ -1,50 +1,61 @@
 {% extends "base.html" %}
 {% block title %}Bliv en aktivpsykolog{% endblock %}
-{% block meta_desc %}Er du autoriseret psykolog og ønsker at samarbejde med Aktivpsykologerne i Aarhus? Læs mere her.{% endblock %}
+{% block meta_desc %}Er du autoriseret psykolog og ønsker at samarbejde med Aktivpsykologerne i Aarhus?{% endblock %}
 
 {% block content %}
 
-<section class="page-header">
-  <div class="container">
-    <h1>Bliv en aktivpsykolog</h1>
-    <p class="lead">Er du autoriseret psykolog og søger nye muligheder?</p>
+<section class="py-16 bg-base-200">
+  <div class="max-w-5xl mx-auto px-6">
+    <div class="breadcrumbs text-sm mb-4 opacity-60">
+      <ul><li><a href="/">Hjem</a></li><li>Bliv en aktivpsykolog</li></ul>
+    </div>
+    <h1 class="text-4xl font-bold">Bliv en aktivpsykolog</h1>
+    <p class="text-lg opacity-60 mt-2">Er du autoriseret psykolog og søger nye muligheder?</p>
   </div>
 </section>
 
-<section class="section">
-  <div class="container" style="max-width:800px;">
+<section class="py-20">
+  <div class="max-w-3xl mx-auto px-6">
+    <p class="opacity-80 mb-8 text-lg">Aktivpsykologerne er en psykologpraksis i Aarhus med høj faglig kvalitet og et varmt, menneskecentreret mindset. Vi er i løbende dialog om at udvide teamet med engagerede kolleger.</p>
 
-    <p>
-      Aktivpsykologerne er en psykologpraksis i Aarhus, der arbejder med høj faglig kvalitet
-      og et varmt, menneskecentreret mindset. Vi er i løbende dialog om mulighederne for at
-      udvide teamet med engagerede, kompetente kolleger.
-    </p>
-
-    <h2 class="mt-2">Hvem søger vi?</h2>
-    <ul>
-      <li>Autoriserede psykologer med klinisk erfaring</li>
-      <li>Psykologer med speciale i børn/unge, traumer, par eller voksne</li>
-      <li>Psykologer, der ønsker at arbejde i et fagligt fællesskab med fleksibilitet</li>
-      <li>Psykologer med interesse i evidensbaserede metoder (f.eks. EMDR, kognitiv terapi)</li>
-    </ul>
-
-    <h2 class="mt-2">Hvad tilbyder vi?</h2>
-    <ul>
-      <li>Et professionelt og imødekommende arbejdsmiljø</li>
-      <li>Etableret klinik med gode faciliteter i Aarhus N</li>
-      <li>Kollegial sparring og faglig supervision</li>
-      <li>Fleksible aftaler tilpasset dine behov</li>
-    </ul>
-
-    <div class="info-box mt-2">
-      <strong>Interesseret?</strong>
-      <p>
-        Send en kortfattet præsentation af dig selv og dine faglige interesser til
-        <a href="mailto:kontakt@aktivpsykologerne.dk">kontakt@aktivpsykologerne.dk</a>
-        – så vender vi tilbage hurtigst muligt.
-      </p>
+    <div class="grid sm:grid-cols-2 gap-6 mb-8">
+      <div class="card bg-base-100 border border-base-300">
+        <div class="card-body">
+          <h3 class="card-title text-lg">Hvem søger vi?</h3>
+          <ul class="space-y-2 mt-2">
+            {% for item in ['Autoriserede psykologer med klinisk erfaring', 'Speciale i børn/unge, traumer, par eller voksne', 'Interesse i evidensbaserede metoder (EMDR, kognitiv terapi)', 'Ønske om fagligt fællesskab med fleksibilitet'] %}
+            <li class="flex gap-2 text-sm">
+              <span class="text-primary">✓</span>
+              <span class="opacity-80">{{ item }}</span>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+      <div class="card bg-base-100 border border-base-300">
+        <div class="card-body">
+          <h3 class="card-title text-lg">Hvad tilbyder vi?</h3>
+          <ul class="space-y-2 mt-2">
+            {% for item in ['Professionelt og imødekommende arbejdsmiljø', 'Etableret klinik med gode faciliteter i Aarhus N', 'Kollegial sparring og faglig supervision', 'Fleksible aftaler tilpasset dine behov'] %}
+            <li class="flex gap-2 text-sm">
+              <span class="text-primary">✓</span>
+              <span class="opacity-80">{{ item }}</span>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
     </div>
 
+    <div class="card bg-primary text-primary-content">
+      <div class="card-body">
+        <h3 class="card-title">Interesseret?</h3>
+        <p class="opacity-80 text-sm">Send en kortfattet præsentation af dig selv og dine faglige interesser – så vender vi tilbage hurtigst muligt.</p>
+        <div class="card-actions mt-3">
+          <a href="mailto:kontakt@aktivpsykologerne.dk" class="btn bg-white text-primary border-0 rounded-full btn-sm hover:bg-white/90">Send en mail</a>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 

@@ -4,32 +4,45 @@
 
 {% block content %}
 
-<section class="page-header">
-  <div class="container">
-    <h1>Blog</h1>
-    <p class="lead">Artikler om psykologi, trivsel og hverdagsliv.</p>
+<section class="py-16 bg-base-200">
+  <div class="max-w-5xl mx-auto px-6">
+    <div class="breadcrumbs text-sm mb-4 opacity-60">
+      <ul><li><a href="/">Hjem</a></li><li>Blog</li></ul>
+    </div>
+    <h1 class="text-4xl font-bold">Blog</h1>
+    <p class="text-lg opacity-60 mt-2">Artikler om psykologi, trivsel og hverdagsliv.</p>
   </div>
 </section>
 
-<section class="section">
-  <div class="container">
+<section class="py-20">
+  <div class="max-w-5xl mx-auto px-6">
     {% if posts %}
-    <div class="post-list">
+    <div class="space-y-4">
       {% for post in posts %}
-      <article class="post-card">
-        <div class="post-meta">
-          <time datetime="{{ post.date }}">{{ post.date.strftime('%d. %B %Y') }}</time>
+      <div class="card bg-base-100 border border-base-300 hover:shadow-md transition-shadow">
+        <div class="card-body sm:flex-row sm:items-start gap-4">
+          <div class="flex-1">
+            <p class="text-xs opacity-50 mb-1">
+              <time datetime="{{ post.date }}">{{ post.date.strftime('%d. %B %Y') }}</time>
+            </p>
+            <h2 class="text-xl font-bold mb-2">
+              <a href="/blog/{{ post.slug }}/" class="hover:text-primary transition-colors">{{ post.title }}</a>
+            </h2>
+            {% if post.description %}
+            <p class="opacity-70 text-sm">{{ post.description }}</p>
+            {% endif %}
+          </div>
+          <div class="sm:self-center">
+            <a href="/blog/{{ post.slug }}/" class="btn btn-outline btn-primary btn-sm rounded-full whitespace-nowrap">Læs artikel →</a>
+          </div>
         </div>
-        <h2 class="post-title"><a href="/blog/{{ post.slug }}/">{{ post.title }}</a></h2>
-        {% if post.description %}
-        <p class="post-excerpt">{{ post.description }}</p>
-        {% endif %}
-        <a href="/blog/{{ post.slug }}/" class="post-readmore">Læs artikel &rarr;</a>
-      </article>
+      </div>
       {% endfor %}
     </div>
     {% else %}
-    <p>Ingen artikler endnu – kig tilbage snart.</p>
+    <div class="text-center py-16 opacity-50">
+      <p class="text-lg">Ingen artikler endnu – kig tilbage snart.</p>
+    </div>
     {% endif %}
   </div>
 </section>
