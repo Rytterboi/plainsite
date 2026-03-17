@@ -84,9 +84,13 @@ There is no database. No proprietary format. No hidden content. Everything on yo
 
 We want clients to stay because the service is excellent. Not because they're stuck.
 
-That honesty changes the dynamic completely. It signals confidence in the product. It signals respect for the client's business. And ironically it probably reduces churn — people stay with vendors they trust. The ones who trap you are the ones clients are desperately looking for an exit from.
+**No lock-in on the contract either.** Month to month, cancel anytime, no notice period, no cancellation fee. If we're not delivering value you shouldn't be paying. That's it.
 
-> *"Want to move on someday? No problem. It's your content, it's on your website, anyone can pick it up. We'd rather earn your business every month than hold you hostage."*
+That honesty changes the dynamic completely. It signals confidence in the product. It signals respect for the client's business. And ironically it reduces churn — people stay with vendors they trust. The ones who trap you with 12-month contracts are the ones clients are desperately looking for an exit from.
+
+> *"Month to month. No contract. Want to move on? No problem, no hard feelings. It's your content, it's on your website, anyone can pick it up and rebuild it elsewhere in days. We'd rather earn your business every month than hold you hostage."*
+
+That pitch closes itself. No sane small business owner says no to that.
 
 ---
 
